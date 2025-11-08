@@ -2,6 +2,15 @@
 
 Calculadora de financiamento com prestações fixas (Sistema Price), inspirada na calculadora do Banco Central do Brasil. Desenvolvida em JavaScript Vanilla para funcionar no GitHub Pages.
 
+## 🌐 Acesse o Projeto
+
+- **Site**: [https://dwildt.github.io/juros/](https://dwildt.github.io/juros/)
+- **Repositório**: [https://github.com/dwildt/juros](https://github.com/dwildt/juros)
+- **Apoie o projeto**: [GitHub Sponsors](https://github.com/sponsors/dwildt)
+
+[![CI](https://github.com/dwildt/juros/workflows/CI%20-%20Integração%20Contínua/badge.svg)](https://github.com/dwildt/juros/actions)
+[![Deploy](https://github.com/dwildt/juros/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/dwildt/juros/actions)
+
 ## Funcionalidades
 
 A calculadora permite calcular qualquer uma das quatro variáveis de um financiamento:
@@ -280,9 +289,12 @@ Contribuições são bem-vindas! Por favor:
 
 Este projeto é de código aberto e está disponível sob a licença MIT.
 
-## Autor
+## Créditos
 
-Desenvolvido como parte do desafio #100DaysOfCode
+- **Inspirado em**: [Calculadora do Banco Central do Brasil](https://www3.bcb.gov.br/CALCIDADAO/)
+- **Desenvolvido com**: [Claude Code](https://claude.com/claude-code)
+- **Repositório**: [github.com/dwildt/juros](https://github.com/dwildt/juros)
+- **Apoie o projeto**: [GitHub Sponsors](https://github.com/sponsors/dwildt)
 
 ---
 

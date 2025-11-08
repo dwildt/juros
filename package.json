@@ -24,7 +24,7 @@
     "tabela-price",
     "sistema-price"
   ],
-  "author": "",
+  "author": "dwildt",
   "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
@@ -40,10 +40,10 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seu-usuario/juros.git"
+    "url": "git+https://github.com/dwildt/juros.git"
   },
   "bugs": {
-    "url": "https://github.com/seu-usuario/juros/issues"
+    "url": "https://github.com/dwildt/juros/issues"
   },
-  "homepage": "https://github.com/seu-usuario/juros#readme"
+  "homepage": "https://dwildt.github.io/juros/"
 }
