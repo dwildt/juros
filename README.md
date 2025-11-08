@@ -114,6 +114,36 @@ Executar testes em modo headless:
 npm run cypress:run
 ```
 
+## Qualidade de Código
+
+### Lint (ESLint)
+
+Verificar problemas no código:
+
+```bash
+npm run lint
+```
+
+Corrigir problemas automaticamente:
+
+```bash
+npm run lint:fix
+```
+
+### Formatação (Prettier)
+
+Formatar código:
+
+```bash
+npm run format
+```
+
+Verificar formatação sem modificar:
+
+```bash
+npm run format:check
+```
+
 ## Estrutura do Projeto
 
 O projeto segue o padrão **Atomic Design** para organização de componentes:
@@ -167,6 +197,8 @@ Cada tema possui modo claro e escuro, totalizando 8 combinações visuais.
 - **CSS3**: Variáveis CSS, Grid, Flexbox
 - **Jest**: Testes unitários
 - **Cypress**: Testes end-to-end
+- **ESLint**: Análise estática de código
+- **Prettier**: Formatação automática de código
 - **GitHub Pages**: Hospedagem gratuita
 
 ## Deploy

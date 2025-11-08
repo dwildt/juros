@@ -115,6 +115,33 @@ class GerenciadorTemas { }
  */
 ```
 
+## Qualidade de Código
+
+### ESLint
+Configuração para análise estática de código JavaScript:
+- Regras padrão do ESLint
+- Plugin para Jest (testes unitários)
+- Plugin para Cypress (testes E2E)
+- Integração com Prettier para evitar conflitos
+- Regras personalizadas para o projeto
+
+### Prettier
+Formatação automática e consistente:
+- Single quotes para strings
+- Semicolons obrigatórios
+- Tab width: 2 espaços
+- Line ending: LF (Unix)
+- Trailing comma: none
+- Print width: 100 caracteres
+
+### Scripts de Qualidade
+```bash
+npm run lint          # Verificar problemas
+npm run lint:fix      # Corrigir automaticamente
+npm run format        # Formatar código
+npm run format:check  # Verificar formatação
+```
+
 ## Configuração de Testes
 
 ### Jest (Testes Unitários)
