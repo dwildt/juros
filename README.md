@@ -1,2 +1,219 @@
-# juros
-Calculadora de Juros
+# Calculadora de Financiamento
+
+Calculadora de financiamento com prestações fixas (Sistema Price), inspirada na calculadora do Banco Central do Brasil. Desenvolvida em JavaScript Vanilla para funcionar no GitHub Pages.
+
+## Funcionalidades
+
+A calculadora permite calcular qualquer uma das quatro variáveis de um financiamento:
+
+- **Número de Meses (Prazo)**: Descubra em quantos meses você quitará o financiamento
+- **Taxa de Juros Mensal**: Calcule a taxa de juros do seu financiamento
+- **Valor da Prestação**: Saiba quanto pagará mensalmente
+- **Valor Financiado**: Determine o valor total que pode ser financiado
+
+### Recursos Adicionais
+
+- Seletor de temas com 4 cores: Azul, Verde, Laranja e Roxo
+- Modo escuro (Dark Mode) para melhor conforto visual
+- Interface responsiva e acessível
+- Validação de formulários em tempo real
+- Formatação automática de valores monetários
+
+## Pré-requisitos
+
+Para executar o projeto localmente, você precisa ter instalado:
+
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- npm (geralmente vem com o Node.js)
+
+Para verificar se você já tem instalado:
+
+```bash
+node --version
+npm --version
+```
+
+## Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/juros.git
+cd juros
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+## Como Executar Localmente
+
+### Opção 1: Usando serve (Recomendado)
+
+```bash
+npm start
+```
+
+O projeto estará disponível em `http://localhost:3000`
+
+### Opção 2: Usando http-server
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível em `http://localhost:3000`
+
+### Opção 3: Usando npx diretamente (sem instalar)
+
+```bash
+npx serve .
+```
+
+ou
+
+```bash
+npx http-server -p 3000
+```
+
+## Executar Testes
+
+### Testes Unitários (Jest)
+
+Executar todos os testes:
+
+```bash
+npm test
+```
+
+Executar testes em modo watch (desenvolvimento):
+
+```bash
+npm run test:watch
+```
+
+Executar testes com cobertura:
+
+```bash
+npm run test:coverage
+```
+
+### Testes E2E (Cypress)
+
+Abrir interface do Cypress:
+
+```bash
+npm run cypress
+```
+
+Executar testes em modo headless:
+
+```bash
+npm run cypress:run
+```
+
+## Estrutura do Projeto
+
+O projeto segue o padrão **Atomic Design** para organização de componentes:
+
+```
+juros/
+├── src/
+│   ├── componentes/
+│   │   ├── atomos/          # Botões, inputs, labels, ícones
+│   │   ├── moleculas/       # Campos de formulário, cards
+│   │   ├── organismos/      # Formulário completo, painel de resultados
+│   │   ├── templates/       # Layouts de página
+│   │   └── paginas/         # Página principal da calculadora
+│   ├── estilos/
+│   │   ├── variaveis.css    # Variáveis de tema e cores
+│   │   ├── temas/           # Temas: azul, verde, laranja, roxo
+│   │   ├── base.css         # Estilos base e reset
+│   │   └── dark-mode.css    # Estilos do modo escuro
+│   ├── utils/
+│   │   ├── calculos.js      # Cálculos financeiros (Sistema Price)
+│   │   ├── validacao.js     # Validação de formulários
+│   │   └── formatacao.js    # Formatação de moeda e números
+│   └── index.html           # Página principal
+├── testes/
+│   ├── unitarios/           # Testes Jest
+│   └── e2e/                 # Testes Cypress
+├── documentos/              # Documentação adicional
+├── tasks/                   # Histórico de tarefas
+├── claude.md                # Configurações do projeto
+├── README.md                # Este arquivo
+├── package.json             # Dependências e scripts
+├── jest.config.js           # Configuração do Jest
+└── cypress.config.js        # Configuração do Cypress
+```
+
+## Temas e Personalização
+
+A aplicação oferece 4 temas de cores:
+
+- **Azul** (padrão): Tom profissional e confiável
+- **Verde**: Tom natural e positivo
+- **Laranja**: Tom vibrante e energético
+- **Roxo**: Tom criativo e moderno
+
+Cada tema possui modo claro e escuro, totalizando 8 combinações visuais.
+
+## Tecnologias Utilizadas
+
+- **JavaScript Vanilla**: Sem frameworks, máxima compatibilidade
+- **HTML5**: Marcação semântica
+- **CSS3**: Variáveis CSS, Grid, Flexbox
+- **Jest**: Testes unitários
+- **Cypress**: Testes end-to-end
+- **GitHub Pages**: Hospedagem gratuita
+
+## Deploy
+
+O projeto está configurado para deploy automático no GitHub Pages.
+
+Para fazer deploy manual:
+
+1. Build dos arquivos (se necessário)
+2. Push para a branch `main`
+3. Configure GitHub Pages nas configurações do repositório
+4. Selecione a branch `main` como fonte
+
+Acesse o site em: `https://seu-usuario.github.io/juros/`
+
+## Contribuindo
+
+Contribuições são bem-vindas! Por favor:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
+
+### Padrões de Código
+
+- Nomes de variáveis e funções em português brasileiro
+- Comentários e documentação em português
+- Seguir convenções do Atomic Design
+- Escrever testes para novas funcionalidades
+- Manter cobertura de testes acima de 80%
+
+## Referências
+
+- [Calculadora do Banco Central](https://www3.bcb.gov.br/CALCIDADAO/publico/exibirFormFinanciamentoPrestacoesFixas.do?method=exibirFormFinanciamentoPrestacoesFixas)
+- [Sistema Price - Tabela Price](https://pt.wikipedia.org/wiki/Tabela_Price)
+- [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)
+
+## Licença
+
+Este projeto é de código aberto e está disponível sob a licença MIT.
+
+## Autor
+
+Desenvolvido como parte do desafio #100DaysOfCode
+
+---
+
+Feito com dedicação para aprender e compartilhar conhecimento

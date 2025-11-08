@@ -1,0 +1,113 @@
+/**
+ * Componente Atômico: Botão
+ * Estilos para botões da aplicação
+ */
+
+.botao {
+  padding: var(--espacamento-sm) var(--espacamento-lg);
+  font-size: var(--tamanho-fonte-md);
+  font-weight: var(--peso-fonte-medio);
+  border-radius: var(--raio-borda-md);
+  border: var(--largura-borda-fina) solid transparent;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.botao:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-hover);
+}
+
+.botao:active {
+  transform: translateY(0);
+}
+
+.botao:focus-visible {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.botao:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Variantes de botão */
+.botao--primario {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+}
+
+.botao--primario:hover:not(:disabled) {
+  background-color: var(--cor-primaria-hover);
+}
+
+.botao--secundario {
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto-primario);
+  border-color: var(--cor-borda);
+}
+
+.botao--secundario:hover:not(:disabled) {
+  background-color: var(--cor-borda);
+}
+
+.botao--perigo {
+  background-color: var(--cor-erro);
+  color: var(--cor-fundo);
+}
+
+.botao--perigo:hover:not(:disabled) {
+  background-color: var(--cor-erro-claro);
+}
+
+.botao--sucesso {
+  background-color: var(--cor-sucesso);
+  color: var(--cor-fundo);
+}
+
+.botao--sucesso:hover:not(:disabled) {
+  background-color: var(--cor-sucesso-claro);
+}
+
+.botao--fantasma {
+  background-color: transparent;
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+.botao--fantasma:hover:not(:disabled) {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+}
+
+/* Tamanhos de botão */
+.botao--pequeno {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  font-size: var(--tamanho-fonte-sm);
+}
+
+.botao--grande {
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  font-size: var(--tamanho-fonte-lg);
+}
+
+/* Botão de largura completa */
+.botao--completo {
+  width: 100%;
+}
+
+/* Botão circular/ícone */
+.botao--icone {
+  padding: var(--espacamento-sm);
+  border-radius: var(--raio-borda-circular);
+  aspect-ratio: 1 / 1;
+}

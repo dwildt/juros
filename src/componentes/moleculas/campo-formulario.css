@@ -1,0 +1,32 @@
+/**
+ * Componente Molecular: Campo de Formulário
+ * Combinação de label, input e texto de ajuda
+ */
+
+.campo-formulario {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.campo-formulario__label {
+  /* Usa estilos de .label */
+}
+
+.campo-formulario__input {
+  /* Usa estilos de .input */
+}
+
+.campo-formulario__ajuda {
+  /* Usa estilos de .texto-ajuda */
+}
+
+.campo-formulario--erro .campo-formulario__label {
+  color: var(--cor-erro);
+}
+
+.campo-formulario--erro .campo-formulario__input {
+  border-color: var(--cor-erro);
+}
+
+.campo-formulario--sucesso .campo-formulario__input {
+  border-color: var(--cor-sucesso);
+}

@@ -1,0 +1,26 @@
+/**
+ * Componente Atômico: Label
+ * Estilos para rótulos de formulário
+ */
+
+.label {
+  display: block;
+  margin-bottom: var(--espacamento-xs);
+  font-size: var(--tamanho-fonte-sm);
+  font-weight: var(--peso-fonte-medio);
+  color: var(--cor-texto-secundario);
+}
+
+.label--obrigatorio::after {
+  content: ' *';
+  color: var(--cor-erro);
+}
+
+.label--erro {
+  color: var(--cor-erro);
+}
+
+.label--grande {
+  font-size: var(--tamanho-fonte-md);
+  font-weight: var(--peso-fonte-semibold);
+}

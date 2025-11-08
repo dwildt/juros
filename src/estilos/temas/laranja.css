@@ -1,0 +1,10 @@
+/**
+ * Tema Laranja - Vibrante e Energético
+ */
+
+[data-tema-cor="laranja"] {
+  --cor-primaria: #FF8C00;
+  --cor-primaria-escura: #CC7000;
+  --cor-primaria-clara: #FFA333;
+  --cor-primaria-hover: #E67E00;
+}

@@ -1,0 +1,10 @@
+/**
+ * Tema Verde - Natural e Positivo
+ */
+
+[data-tema-cor="verde"] {
+  --cor-primaria: #00A86B;
+  --cor-primaria-escura: #007A4D;
+  --cor-primaria-clara: #33B685;
+  --cor-primaria-hover: #008A5A;
+}

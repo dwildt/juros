@@ -1,0 +1,10 @@
+/**
+ * Tema Roxo - Criativo e Moderno
+ */
+
+[data-tema-cor="roxo"] {
+  --cor-primaria: #7B3294;
+  --cor-primaria-escura: #5A2470;
+  --cor-primaria-clara: #9552A8;
+  --cor-primaria-hover: #6A2C80;
+}

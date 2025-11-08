@@ -1,0 +1,56 @@
+/**
+ * Componente Molecular: Cartão
+ * Container para agrupar conteúdo relacionado
+ */
+
+.cartao {
+  background-color: var(--cor-fundo);
+  border: var(--largura-borda-fina) solid var(--cor-borda);
+  border-radius: var(--raio-borda-lg);
+  padding: var(--espacamento-xl);
+  box-shadow: var(--sombra-pequena);
+  transition: box-shadow var(--transicao-normal);
+}
+
+.cartao:hover {
+  box-shadow: var(--sombra-media);
+}
+
+.cartao__cabecalho {
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: var(--largura-borda-fina) solid var(--cor-borda);
+}
+
+.cartao__titulo {
+  margin: 0;
+  font-size: var(--tamanho-fonte-xl);
+  font-weight: var(--peso-fonte-bold);
+  color: var(--cor-texto-primario);
+}
+
+.cartao__subtitulo {
+  margin-top: var(--espacamento-xs);
+  font-size: var(--tamanho-fonte-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.cartao__corpo {
+  /* Conteúdo principal do cartão */
+}
+
+.cartao__rodape {
+  margin-top: var(--espacamento-lg);
+  padding-top: var(--espacamento-md);
+  border-top: var(--largura-borda-fina) solid var(--cor-borda);
+}
+
+/* Variantes */
+.cartao--destaque {
+  border-color: var(--cor-primaria);
+  border-width: var(--largura-borda-media);
+}
+
+.cartao--superficie {
+  background-color: var(--cor-superficie);
+}

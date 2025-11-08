@@ -1,0 +1,64 @@
+/**
+ * Componente Atômico: Input
+ * Estilos para campos de entrada
+ */
+
+.input {
+  width: 100%;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  font-size: var(--tamanho-fonte-md);
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto-primario);
+  background-color: var(--cor-fundo);
+  border: var(--largura-borda-media) solid var(--cor-borda);
+  border-radius: var(--raio-borda-md);
+  transition: all var(--transicao-rapida);
+}
+
+.input::placeholder {
+  color: var(--cor-texto-terciario);
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--cor-texto-secundario);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: var(--cor-superficie);
+}
+
+/* Estados de validação */
+.input--erro {
+  border-color: var(--cor-erro);
+}
+
+.input--erro:focus {
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.input--sucesso {
+  border-color: var(--cor-sucesso);
+}
+
+.input--sucesso:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Tamanhos */
+.input--pequeno {
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  font-size: var(--tamanho-fonte-sm);
+}
+
+.input--grande {
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  font-size: var(--tamanho-fonte-lg);
+}
