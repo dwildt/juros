@@ -201,18 +201,53 @@ Cada tema possui modo claro e escuro, totalizando 8 combinações visuais.
 - **Prettier**: Formatação automática de código
 - **GitHub Pages**: Hospedagem gratuita
 
-## Deploy
+## CI/CD e Deploy
 
-O projeto está configurado para deploy automático no GitHub Pages.
+### Integração Contínua (CI)
 
-Para fazer deploy manual:
+O projeto utiliza GitHub Actions para CI/CD automático:
 
-1. Build dos arquivos (se necessário)
-2. Push para a branch `main`
-3. Configure GitHub Pages nas configurações do repositório
-4. Selecione a branch `main` como fonte
+**Pull Requests e Branches:**
+- Executa lint (ESLint)
+- Verifica formatação (Prettier)
+- Roda testes unitários (Jest) com cobertura
+- Executa testes E2E (Cypress)
+- Upload de artefatos em caso de falha
 
-Acesse o site em: `https://seu-usuario.github.io/juros/`
+**Branch Main:**
+- Executa todas as verificações de CI
+- Deploy automático para GitHub Pages
+- Publicação da aplicação
+
+### Deploy no GitHub Pages
+
+**Configuração Inicial:**
+
+1. Vá em **Settings** > **Pages** do repositório
+2. Em **Source**, selecione **GitHub Actions**
+3. O deploy será feito automaticamente a cada push na branch `main`
+
+**Deploy Automático:**
+- Cada push na `main` dispara o workflow de deploy
+- Testes e lint são executados antes do deploy
+- Se tudo passar, a aplicação é publicada automaticamente
+
+**Deploy Manual:**
+- Acesse a aba **Actions** no GitHub
+- Selecione o workflow "Deploy to GitHub Pages"
+- Clique em "Run workflow"
+
+**URL da Aplicação:**
+`https://seu-usuario.github.io/juros/`
+
+### Badges
+
+Adicione ao README para mostrar status:
+
+```markdown
+![CI](https://github.com/seu-usuario/juros/workflows/CI%20-%20Integração%20Contínua/badge.svg)
+![Deploy](https://github.com/seu-usuario/juros/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
+```
 
 ## Contribuindo
 
@@ -231,6 +266,9 @@ Contribuições são bem-vindas! Por favor:
 - Seguir convenções do Atomic Design
 - Escrever testes para novas funcionalidades
 - Manter cobertura de testes acima de 80%
+- Executar `npm run lint:fix` antes de commitar
+- Executar `npm run format` para formatar o código
+- Todos os testes devem passar: `npm test`
 
 ## Referências
 

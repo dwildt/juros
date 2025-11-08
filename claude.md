@@ -200,6 +200,44 @@ npm run format:check  # Verificar formatação
 - Mobile-first design
 - Progressive Enhancement
 
+## CI/CD com GitHub Actions
+
+### Workflows Configurados
+
+**1. CI - Integração Contínua (`ci.yml`)**
+Executado em Pull Requests e branches não-main:
+- **Lint**: Verifica código com ESLint
+- **Format Check**: Valida formatação com Prettier
+- **Testes Unitários**: Executa Jest com cobertura
+- **Testes E2E**: Roda Cypress em modo headless
+- **Artefatos**: Upload de screenshots e vídeos em falhas
+
+**2. Deploy (`deploy.yml`)**
+Executado ao fazer push na branch main:
+- Verifica lint e formatação
+- Executa todos os testes
+- Deploy automático para GitHub Pages
+- Publicação da pasta `src/`
+
+### Configuração do GitHub Pages
+
+1. Repositório > Settings > Pages
+2. Source: GitHub Actions
+3. Deploy automático a cada push na `main`
+
+### Badges de Status
+
+```markdown
+![CI](https://github.com/usuario/juros/workflows/CI/badge.svg)
+![Deploy](https://github.com/usuario/juros/workflows/Deploy/badge.svg)
+```
+
+### Ambientes
+
+- **Development**: Branches de feature
+- **Staging**: Pull Requests
+- **Production**: Branch main (GitHub Pages)
+
 ## Referências
 - Calculadora do Banco Central: https://www3.bcb.gov.br/CALCIDADAO/
 - Atomic Design: https://bradfrost.com/blog/post/atomic-web-design/
