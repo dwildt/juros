@@ -169,14 +169,14 @@ export function formatarInputEmTempoReal(valor, tipo = 'moeda') {
   }
 
   switch (tipo) {
-    case 'moeda':
-      return formatarMoeda(numero);
-    case 'percentual':
-      return formatarPercentual(numero, true);
-    case 'numero':
-      return formatarNumero(numero);
-    default:
-      return valorLimpo;
+  case 'moeda':
+    return formatarMoeda(numero);
+  case 'percentual':
+    return formatarPercentual(numero, true);
+  case 'numero':
+    return formatarNumero(numero);
+  default:
+    return valorLimpo;
   }
 }
 
