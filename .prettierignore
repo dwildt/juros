@@ -1,0 +1,22 @@
+# Dependências
+node_modules/
+
+# Cobertura de testes
+cobertura/
+coverage/
+
+# Cypress
+testes/e2e/screenshots/
+testes/e2e/videos/
+
+# Build
+dist/
+build/
+
+# Package files
+package-lock.json
+yarn.lock
+
+# Git
+.git/
+.gitignore
