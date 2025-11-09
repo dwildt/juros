@@ -27,7 +27,7 @@
   "author": "dwildt",
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-env": "^7.28.5",
     "@jest/globals": "^29.7.0",
     "babel-jest": "^29.7.0",
     "cypress": "^13.6.0",
@@ -39,7 +39,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.1"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dwildt/juros.git"

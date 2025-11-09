@@ -7,7 +7,6 @@ module.exports = {
   testEnvironment: 'jsdom',
 
   // Suporte para ES Modules
-  extensionsToTreatAsEsm: ['.js'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
@@ -52,9 +51,6 @@ module.exports = {
 
   // Arquivos de configuração a serem executados antes dos testes
   setupFilesAfterEnv: [],
-
-  // Transformações
-  transform: {},
 
   // Extensões de módulo
   moduleFileExtensions: ['js', 'json'],
