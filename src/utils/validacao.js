@@ -10,7 +10,7 @@
  * @returns {boolean} True se for um número válido
  */
 export function ehNumeroValido(valor) {
-  return typeof valor === 'number' && !isNaN(valor) && isFinite(valor);
+    return typeof valor === 'number' && !isNaN(valor) && isFinite(valor);
 }
 
 /**
@@ -20,7 +20,7 @@ export function ehNumeroValido(valor) {
  * @returns {boolean} True se for um número positivo
  */
 export function ehNumeroPositivo(valor) {
-  return ehNumeroValido(valor) && valor > 0;
+    return ehNumeroValido(valor) && valor > 0;
 }
 
 /**
@@ -30,7 +30,7 @@ export function ehNumeroPositivo(valor) {
  * @returns {boolean} True se for um número não-negativo
  */
 export function ehNumeroNaoNegativo(valor) {
-  return ehNumeroValido(valor) && valor >= 0;
+    return ehNumeroValido(valor) && valor >= 0;
 }
 
 /**
@@ -40,24 +40,24 @@ export function ehNumeroNaoNegativo(valor) {
  * @returns {Object} Objeto com status de validação e mensagem de erro
  */
 export function validarValorFinanciado(valor) {
-  if (!ehNumeroValido(valor)) {
-    return {
-      valido: false,
-      mensagem: 'Valor financiado deve ser um número válido'
-    };
-  }
+    if (!ehNumeroValido(valor)) {
+        return {
+            valido: false,
+            mensagem: 'Valor financiado deve ser um número válido'
+        };
+    }
 
-  if (!ehNumeroPositivo(valor)) {
-    return {
-      valido: false,
-      mensagem: 'Valor financiado deve ser maior que zero'
-    };
-  }
+    if (!ehNumeroPositivo(valor)) {
+        return {
+            valido: false,
+            mensagem: 'Valor financiado deve ser maior que zero'
+        };
+    }
 
-  return {
-    valido: true,
-    mensagem: ''
-  };
+    return {
+        valido: true,
+        mensagem: ''
+    };
 }
 
 /**
@@ -67,32 +67,32 @@ export function validarValorFinanciado(valor) {
  * @returns {Object} Objeto com status de validação e mensagem de erro
  */
 export function validarTaxaJuros(taxa) {
-  if (!ehNumeroValido(taxa)) {
-    return {
-      valido: false,
-      mensagem: 'Taxa de juros deve ser um número válido'
-    };
-  }
+    if (!ehNumeroValido(taxa)) {
+        return {
+            valido: false,
+            mensagem: 'Taxa de juros deve ser um número válido'
+        };
+    }
 
-  if (!ehNumeroNaoNegativo(taxa)) {
-    return {
-      valido: false,
-      mensagem: 'Taxa de juros não pode ser negativa'
-    };
-  }
+    if (!ehNumeroNaoNegativo(taxa)) {
+        return {
+            valido: false,
+            mensagem: 'Taxa de juros não pode ser negativa'
+        };
+    }
 
-  // Assumindo taxa em porcentagem
-  if (taxa > 100) {
-    return {
-      valido: false,
-      mensagem: 'Taxa de juros muito alta (máximo 100%)'
-    };
-  }
+    // Assumindo taxa em porcentagem
+    if (taxa > 100) {
+        return {
+            valido: false,
+            mensagem: 'Taxa de juros muito alta (máximo 100%)'
+        };
+    }
 
-  return {
-    valido: true,
-    mensagem: ''
-  };
+    return {
+        valido: true,
+        mensagem: ''
+    };
 }
 
 /**
@@ -102,38 +102,38 @@ export function validarTaxaJuros(taxa) {
  * @returns {Object} Objeto com status de validação e mensagem de erro
  */
 export function validarNumeroDeMeses(meses) {
-  if (!ehNumeroValido(meses)) {
-    return {
-      valido: false,
-      mensagem: 'Número de meses deve ser um número válido'
-    };
-  }
+    if (!ehNumeroValido(meses)) {
+        return {
+            valido: false,
+            mensagem: 'Número de meses deve ser um número válido'
+        };
+    }
 
-  if (!ehNumeroPositivo(meses)) {
-    return {
-      valido: false,
-      mensagem: 'Número de meses deve ser maior que zero'
-    };
-  }
+    if (!ehNumeroPositivo(meses)) {
+        return {
+            valido: false,
+            mensagem: 'Número de meses deve ser maior que zero'
+        };
+    }
 
-  if (meses > 600) {
-    return {
-      valido: false,
-      mensagem: 'Número de meses muito alto (máximo 600 meses / 50 anos)'
-    };
-  }
+    if (meses > 600) {
+        return {
+            valido: false,
+            mensagem: 'Número de meses muito alto (máximo 600 meses / 50 anos)'
+        };
+    }
 
-  if (meses < 1) {
-    return {
-      valido: false,
-      mensagem: 'Número de meses deve ser pelo menos 1'
-    };
-  }
+    if (meses < 1) {
+        return {
+            valido: false,
+            mensagem: 'Número de meses deve ser pelo menos 1'
+        };
+    }
 
-  return {
-    valido: true,
-    mensagem: ''
-  };
+    return {
+        valido: true,
+        mensagem: ''
+    };
 }
 
 /**
@@ -143,24 +143,24 @@ export function validarNumeroDeMeses(meses) {
  * @returns {Object} Objeto com status de validação e mensagem de erro
  */
 export function validarValorPrestacao(prestacao) {
-  if (!ehNumeroValido(prestacao)) {
-    return {
-      valido: false,
-      mensagem: 'Valor da prestação deve ser um número válido'
-    };
-  }
+    if (!ehNumeroValido(prestacao)) {
+        return {
+            valido: false,
+            mensagem: 'Valor da prestação deve ser um número válido'
+        };
+    }
 
-  if (!ehNumeroPositivo(prestacao)) {
-    return {
-      valido: false,
-      mensagem: 'Valor da prestação deve ser maior que zero'
-    };
-  }
+    if (!ehNumeroPositivo(prestacao)) {
+        return {
+            valido: false,
+            mensagem: 'Valor da prestação deve ser maior que zero'
+        };
+    }
 
-  return {
-    valido: true,
-    mensagem: ''
-  };
+    return {
+        valido: true,
+        mensagem: ''
+    };
 }
 
 /**
@@ -170,32 +170,32 @@ export function validarValorPrestacao(prestacao) {
  * @returns {Object} Objeto com status de validação, valor numérico e mensagem
  */
 export function validarCampoNumerico(texto) {
-  if (!texto || texto.trim() === '') {
+    if (!texto || texto.trim() === '') {
+        return {
+            valido: false,
+            valor: null,
+            mensagem: 'Campo obrigatório'
+        };
+    }
+
+    // Remove espaços e substitui vírgula por ponto
+    const textoLimpo = texto.trim().replace(',', '.');
+
+    const numero = parseFloat(textoLimpo);
+
+    if (isNaN(numero) || !isFinite(numero)) {
+        return {
+            valido: false,
+            valor: null,
+            mensagem: 'Valor inválido'
+        };
+    }
+
     return {
-      valido: false,
-      valor: null,
-      mensagem: 'Campo obrigatório'
+        valido: true,
+        valor: numero,
+        mensagem: ''
     };
-  }
-
-  // Remove espaços e substitui vírgula por ponto
-  const textoLimpo = texto.trim().replace(',', '.');
-
-  const numero = parseFloat(textoLimpo);
-
-  if (isNaN(numero) || !isFinite(numero)) {
-    return {
-      valido: false,
-      valor: null,
-      mensagem: 'Valor inválido'
-    };
-  }
-
-  return {
-    valido: true,
-    valor: numero,
-    mensagem: ''
-  };
 }
 
 /**
@@ -206,33 +206,33 @@ export function validarCampoNumerico(texto) {
  * @returns {Object} Objeto com status de validação e mensagem
  */
 export function validarCamposPreenchidos(campos) {
-  const { valorFinanciado, taxaJuros, numeroDeMeses, valorPrestacao } = campos;
+    const { valorFinanciado, taxaJuros, numeroDeMeses, valorPrestacao } = campos;
 
-  const camposPreenchidos = [
-    valorFinanciado !== null && valorFinanciado !== '',
-    taxaJuros !== null && taxaJuros !== '',
-    numeroDeMeses !== null && numeroDeMeses !== '',
-    valorPrestacao !== null && valorPrestacao !== ''
-  ].filter(Boolean).length;
+    const camposPreenchidos = [
+        valorFinanciado !== null && valorFinanciado !== '',
+        taxaJuros !== null && taxaJuros !== '',
+        numeroDeMeses !== null && numeroDeMeses !== '',
+        valorPrestacao !== null && valorPrestacao !== ''
+    ].filter(Boolean).length;
 
-  if (camposPreenchidos < 3) {
+    if (camposPreenchidos < 3) {
+        return {
+            valido: false,
+            mensagem: 'Preencha pelo menos 3 campos para calcular o quarto'
+        };
+    }
+
+    if (camposPreenchidos === 4) {
+        return {
+            valido: false,
+            mensagem: 'Deixe um campo vazio para ser calculado'
+        };
+    }
+
     return {
-      valido: false,
-      mensagem: 'Preencha pelo menos 3 campos para calcular o quarto'
+        valido: true,
+        mensagem: ''
     };
-  }
-
-  if (camposPreenchidos === 4) {
-    return {
-      valido: false,
-      mensagem: 'Deixe um campo vazio para ser calculado'
-    };
-  }
-
-  return {
-    valido: true,
-    mensagem: ''
-  };
 }
 
 /**
@@ -242,12 +242,12 @@ export function validarCamposPreenchidos(campos) {
  * @returns {string|null} Nome do campo a ser calculado ou null
  */
 export function identificarCampoParaCalcular(campos) {
-  const { valorFinanciado, taxaJuros, numeroDeMeses, valorPrestacao } = campos;
+    const { valorFinanciado, taxaJuros, numeroDeMeses, valorPrestacao } = campos;
 
-  if (valorFinanciado === null || valorFinanciado === '') return 'valorFinanciado';
-  if (taxaJuros === null || taxaJuros === '') return 'taxaJuros';
-  if (numeroDeMeses === null || numeroDeMeses === '') return 'numeroDeMeses';
-  if (valorPrestacao === null || valorPrestacao === '') return 'valorPrestacao';
+    if (valorFinanciado === null || valorFinanciado === '') return 'valorFinanciado';
+    if (taxaJuros === null || taxaJuros === '') return 'taxaJuros';
+    if (numeroDeMeses === null || numeroDeMeses === '') return 'numeroDeMeses';
+    if (valorPrestacao === null || valorPrestacao === '') return 'valorPrestacao';
 
-  return null;
+    return null;
 }

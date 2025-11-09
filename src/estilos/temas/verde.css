@@ -2,9 +2,9 @@
  * Tema Verde - Natural e Positivo
  */
 
-[data-tema-cor="verde"] {
-  --cor-primaria: #00A86B;
-  --cor-primaria-escura: #007A4D;
-  --cor-primaria-clara: #33B685;
-  --cor-primaria-hover: #008A5A;
+[data-tema-cor='verde'] {
+    --cor-primaria: #00a86b;
+    --cor-primaria-escura: #007a4d;
+    --cor-primaria-clara: #33b685;
+    --cor-primaria-hover: #008a5a;
 }

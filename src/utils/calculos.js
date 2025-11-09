@@ -13,14 +13,14 @@
  * @returns {number} Valor da prestação mensal
  */
 export function calcularPrestacao(valorFinanciado, taxaJurosMensal, numeroDeMeses) {
-  if (taxaJurosMensal === 0) {
-    return valorFinanciado / numeroDeMeses;
-  }
+    if (taxaJurosMensal === 0) {
+        return valorFinanciado / numeroDeMeses;
+    }
 
-  const fator = Math.pow(1 + taxaJurosMensal, numeroDeMeses);
-  const prestacao = valorFinanciado * (taxaJurosMensal * fator) / (fator - 1);
+    const fator = Math.pow(1 + taxaJurosMensal, numeroDeMeses);
+    const prestacao = (valorFinanciado * (taxaJurosMensal * fator)) / (fator - 1);
 
-  return prestacao;
+    return prestacao;
 }
 
 /**
@@ -33,19 +33,21 @@ export function calcularPrestacao(valorFinanciado, taxaJurosMensal, numeroDeMese
  * @returns {number} Número de meses necessários
  */
 export function calcularNumeroDeMeses(valorFinanciado, taxaJurosMensal, valorPrestacao) {
-  if (taxaJurosMensal === 0) {
-    return valorFinanciado / valorPrestacao;
-  }
+    if (taxaJurosMensal === 0) {
+        return valorFinanciado / valorPrestacao;
+    }
 
-  // Verifica se a prestação é suficiente para pagar pelo menos os juros
-  if (valorPrestacao <= valorFinanciado * taxaJurosMensal) {
-    throw new Error('Valor da prestação é insuficiente para cobrir os juros');
-  }
+    // Verifica se a prestação é suficiente para pagar pelo menos os juros
+    if (valorPrestacao <= valorFinanciado * taxaJurosMensal) {
+        throw new Error('Valor da prestação é insuficiente para cobrir os juros');
+    }
 
-  const numerador = Math.log(valorPrestacao / (valorPrestacao - valorFinanciado * taxaJurosMensal));
-  const denominador = Math.log(1 + taxaJurosMensal);
+    const numerador = Math.log(
+        valorPrestacao / (valorPrestacao - valorFinanciado * taxaJurosMensal)
+    );
+    const denominador = Math.log(1 + taxaJurosMensal);
 
-  return numerador / denominador;
+    return numerador / denominador;
 }
 
 /**
@@ -59,36 +61,46 @@ export function calcularNumeroDeMeses(valorFinanciado, taxaJurosMensal, valorPre
  * @param {number} maxIteracoes - Número máximo de iterações (padrão: 100)
  * @returns {number} Taxa de juros mensal em decimal
  */
-export function calcularTaxaJuros(valorFinanciado, numeroDeMeses, valorPrestacao, precisao = 0.000001, maxIteracoes = 100) {
-  // Chute inicial para a taxa
-  let taxa = 0.01; // 1% ao mês
+export function calcularTaxaJuros(
+    valorFinanciado,
+    numeroDeMeses,
+    valorPrestacao,
+    precisao = 0.000001,
+    maxIteracoes = 100
+) {
+    // Chute inicial para a taxa
+    let taxa = 0.01; // 1% ao mês
 
-  // Caso especial: sem juros
-  if (Math.abs(valorPrestacao * numeroDeMeses - valorFinanciado) < 0.01) {
-    return 0;
-  }
-
-  for (let i = 0; i < maxIteracoes; i++) {
-    const fator = Math.pow(1 + taxa, numeroDeMeses);
-
-    // Função f(taxa) = P - V * [i * (1 + i)^n] / [(1 + i)^n - 1]
-    const f = valorPrestacao - valorFinanciado * (taxa * fator) / (fator - 1);
-
-    // Derivada f'(taxa)
-    const fLinha = valorFinanciado * fator * (numeroDeMeses * (fator - 1) - taxa * numeroDeMeses * fator - fator + 1) / Math.pow(fator - 1, 2);
-
-    // Nova aproximação
-    const novaTaxa = taxa - f / fLinha;
-
-    // Verifica convergência
-    if (Math.abs(novaTaxa - taxa) < precisao) {
-      return novaTaxa;
+    // Caso especial: sem juros
+    if (Math.abs(valorPrestacao * numeroDeMeses - valorFinanciado) < 0.01) {
+        return 0;
     }
 
-    taxa = novaTaxa;
-  }
+    for (let i = 0; i < maxIteracoes; i++) {
+        const fator = Math.pow(1 + taxa, numeroDeMeses);
 
-  throw new Error('Não foi possível calcular a taxa de juros com a precisão desejada');
+        // Função f(taxa) = P - V * [i * (1 + i)^n] / [(1 + i)^n - 1]
+        const f = valorPrestacao - (valorFinanciado * (taxa * fator)) / (fator - 1);
+
+        // Derivada f'(taxa)
+        const fLinha =
+            (valorFinanciado *
+                fator *
+                (numeroDeMeses * (fator - 1) - taxa * numeroDeMeses * fator - fator + 1)) /
+            Math.pow(fator - 1, 2);
+
+        // Nova aproximação
+        const novaTaxa = taxa - f / fLinha;
+
+        // Verifica convergência
+        if (Math.abs(novaTaxa - taxa) < precisao) {
+            return novaTaxa;
+        }
+
+        taxa = novaTaxa;
+    }
+
+    throw new Error('Não foi possível calcular a taxa de juros com a precisão desejada');
 }
 
 /**
@@ -101,14 +113,14 @@ export function calcularTaxaJuros(valorFinanciado, numeroDeMeses, valorPrestacao
  * @returns {number} Valor que pode ser financiado
  */
 export function calcularValorFinanciado(valorPrestacao, taxaJurosMensal, numeroDeMeses) {
-  if (taxaJurosMensal === 0) {
-    return valorPrestacao * numeroDeMeses;
-  }
+    if (taxaJurosMensal === 0) {
+        return valorPrestacao * numeroDeMeses;
+    }
 
-  const fator = Math.pow(1 + taxaJurosMensal, numeroDeMeses);
-  const valorFinanciado = valorPrestacao * (fator - 1) / (taxaJurosMensal * fator);
+    const fator = Math.pow(1 + taxaJurosMensal, numeroDeMeses);
+    const valorFinanciado = (valorPrestacao * (fator - 1)) / (taxaJurosMensal * fator);
 
-  return valorFinanciado;
+    return valorFinanciado;
 }
 
 /**
@@ -119,7 +131,7 @@ export function calcularValorFinanciado(valorPrestacao, taxaJurosMensal, numeroD
  * @returns {number} Valor total pago
  */
 export function calcularValorTotalPago(valorPrestacao, numeroDeMeses) {
-  return valorPrestacao * numeroDeMeses;
+    return valorPrestacao * numeroDeMeses;
 }
 
 /**
@@ -131,8 +143,8 @@ export function calcularValorTotalPago(valorPrestacao, numeroDeMeses) {
  * @returns {number} Total de juros pagos
  */
 export function calcularTotalJurosPagos(valorFinanciado, valorPrestacao, numeroDeMeses) {
-  const valorTotalPago = calcularValorTotalPago(valorPrestacao, numeroDeMeses);
-  return valorTotalPago - valorFinanciado;
+    const valorTotalPago = calcularValorTotalPago(valorPrestacao, numeroDeMeses);
+    return valorTotalPago - valorFinanciado;
 }
 
 /**
@@ -142,7 +154,7 @@ export function calcularTotalJurosPagos(valorFinanciado, valorPrestacao, numeroD
  * @returns {number} Taxa em decimal (ex: 0.015)
  */
 export function converterPorcentagemParaDecimal(taxaPorcentagem) {
-  return taxaPorcentagem / 100;
+    return taxaPorcentagem / 100;
 }
 
 /**
@@ -152,5 +164,5 @@ export function converterPorcentagemParaDecimal(taxaPorcentagem) {
  * @returns {number} Taxa em porcentagem (ex: 1.5)
  */
 export function converterDecimalParaPorcentagem(taxaDecimal) {
-  return taxaDecimal * 100;
+    return taxaDecimal * 100;
 }

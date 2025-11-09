@@ -4,20 +4,20 @@
  */
 
 .texto-ajuda {
-  display: block;
-  margin-top: var(--espacamento-xs);
-  font-size: var(--tamanho-fonte-xs);
-  color: var(--cor-texto-terciario);
+    display: block;
+    margin-top: var(--espacamento-xs);
+    font-size: var(--tamanho-fonte-xs);
+    color: var(--cor-texto-terciario);
 }
 
 .texto-ajuda--erro {
-  color: var(--cor-erro);
+    color: var(--cor-erro);
 }
 
 .texto-ajuda--sucesso {
-  color: var(--cor-sucesso);
+    color: var(--cor-sucesso);
 }
 
 .texto-ajuda--info {
-  color: var(--cor-info);
+    color: var(--cor-info);
 }

@@ -1,216 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-tema-cor="azul" data-tema-modo="claro">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculadora de financiamento com prestações fixas (Sistema Price)">
-  <meta name="keywords" content="calculadora, financiamento, juros, tabela price">
-  <title>Calculadora de Financiamento</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Calculadora de financiamento com prestações fixas (Sistema Price)"
+        />
+        <meta name="keywords" content="calculadora, financiamento, juros, tabela price" />
+        <title>Calculadora de Financiamento</title>
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="estilos/variaveis.css">
-  <link rel="stylesheet" href="estilos/base.css">
-  <link rel="stylesheet" href="estilos/temas/azul.css">
-  <link rel="stylesheet" href="estilos/temas/verde.css">
-  <link rel="stylesheet" href="estilos/temas/laranja.css">
-  <link rel="stylesheet" href="estilos/temas/roxo.css">
-  <link rel="stylesheet" href="componentes/atomos/botao.css">
-  <link rel="stylesheet" href="componentes/atomos/input.css">
-  <link rel="stylesheet" href="componentes/atomos/label.css">
-  <link rel="stylesheet" href="componentes/atomos/texto-ajuda.css">
-  <link rel="stylesheet" href="componentes/moleculas/campo-formulario.css">
-  <link rel="stylesheet" href="componentes/moleculas/cartao.css">
-  <link rel="stylesheet" href="componentes/moleculas/seletor-tema.css">
-  <link rel="stylesheet" href="componentes/organismos/calculadora.css">
-</head>
-<body>
-  <div class="container">
-    <header style="padding: var(--espacamento-xl) 0;">
-      <h1 style="text-align: center; color: var(--cor-primaria); margin-bottom: var(--espacamento-md);">
-        Calculadora de Financiamento
-      </h1>
-      <p style="text-align: center; color: var(--cor-texto-secundario); margin-bottom: var(--espacamento-xl);">
-        Sistema Price - Prestações Fixas
-      </p>
+        <!-- Estilos -->
+        <link rel="stylesheet" href="estilos/variaveis.css" />
+        <link rel="stylesheet" href="estilos/base.css" />
+        <link rel="stylesheet" href="estilos/temas/azul.css" />
+        <link rel="stylesheet" href="estilos/temas/verde.css" />
+        <link rel="stylesheet" href="estilos/temas/laranja.css" />
+        <link rel="stylesheet" href="estilos/temas/roxo.css" />
+        <link rel="stylesheet" href="componentes/atomos/botao.css" />
+        <link rel="stylesheet" href="componentes/atomos/input.css" />
+        <link rel="stylesheet" href="componentes/atomos/label.css" />
+        <link rel="stylesheet" href="componentes/atomos/texto-ajuda.css" />
+        <link rel="stylesheet" href="componentes/moleculas/campo-formulario.css" />
+        <link rel="stylesheet" href="componentes/moleculas/cartao.css" />
+        <link rel="stylesheet" href="componentes/moleculas/seletor-tema.css" />
+        <link rel="stylesheet" href="componentes/organismos/calculadora.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header style="padding: var(--espacamento-xl) 0">
+                <h1
+                    style="
+                        text-align: center;
+                        color: var(--cor-primaria);
+                        margin-bottom: var(--espacamento-md);
+                    "
+                >
+                    Calculadora de Financiamento
+                </h1>
+                <p
+                    style="
+                        text-align: center;
+                        color: var(--cor-texto-secundario);
+                        margin-bottom: var(--espacamento-xl);
+                    "
+                >
+                    Sistema Price - Prestações Fixas
+                </p>
 
-      <!-- Seletor de Tema -->
-      <div class="seletor-tema">
-        <div class="seletor-tema__grupo">
-          <span class="seletor-tema__label">Cor:</span>
-          <div class="seletor-tema__cores">
-            <button
-              class="seletor-tema__cor seletor-tema__cor--azul seletor-tema__cor--ativo"
-              data-cor="azul"
-              aria-label="Tema azul"
-              aria-pressed="true"
-            ></button>
-            <button
-              class="seletor-tema__cor seletor-tema__cor--verde"
-              data-cor="verde"
-              aria-label="Tema verde"
-              aria-pressed="false"
-            ></button>
-            <button
-              class="seletor-tema__cor seletor-tema__cor--laranja"
-              data-cor="laranja"
-              aria-label="Tema laranja"
-              aria-pressed="false"
-            ></button>
-            <button
-              class="seletor-tema__cor seletor-tema__cor--roxo"
-              data-cor="roxo"
-              aria-label="Tema roxo"
-              aria-pressed="false"
-            ></button>
-          </div>
-        </div>
+                <!-- Seletor de Tema -->
+                <div class="seletor-tema">
+                    <div class="seletor-tema__grupo">
+                        <span class="seletor-tema__label">Cor:</span>
+                        <div class="seletor-tema__cores">
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--azul seletor-tema__cor--ativo"
+                                data-cor="azul"
+                                aria-label="Tema azul"
+                                aria-pressed="true"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--verde"
+                                data-cor="verde"
+                                aria-label="Tema verde"
+                                aria-pressed="false"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--laranja"
+                                data-cor="laranja"
+                                aria-label="Tema laranja"
+                                aria-pressed="false"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--roxo"
+                                data-cor="roxo"
+                                aria-label="Tema roxo"
+                                aria-pressed="false"
+                            ></button>
+                        </div>
+                    </div>
 
-        <div class="seletor-tema__grupo">
-          <span class="seletor-tema__label">Modo Escuro:</span>
-          <label class="seletor-tema__toggle">
-            <input
-              type="checkbox"
-              id="toggle-modo-escuro"
-              class="seletor-tema__toggle-input"
-              aria-label="Alternar modo escuro"
+                    <div class="seletor-tema__grupo">
+                        <span class="seletor-tema__label">Modo Escuro:</span>
+                        <label class="seletor-tema__toggle">
+                            <input
+                                type="checkbox"
+                                id="toggle-modo-escuro"
+                                class="seletor-tema__toggle-input"
+                                aria-label="Alternar modo escuro"
+                            />
+                            <span class="seletor-tema__toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: var(--espacamento-xl) 0">
+                <div class="calculadora">
+                    <form id="formulario-calculadora" class="cartao">
+                        <div class="cartao__cabecalho">
+                            <h2 class="cartao__titulo">Calcular Financiamento</h2>
+                            <p class="cartao__subtitulo">
+                                Preencha 3 campos e deixe 1 vazio para calcular
+                            </p>
+                        </div>
+
+                        <div class="cartao__corpo">
+                            <div class="calculadora__campos">
+                                <!-- Valor Financiado -->
+                                <div class="campo-formulario">
+                                    <label
+                                        for="valor-financiado"
+                                        class="label campo-formulario__label"
+                                    >
+                                        Valor Financiado (R$)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="valor-financiado"
+                                        class="input campo-formulario__input"
+                                        placeholder="Ex: 50000"
+                                        aria-describedby="ajuda-valor-financiado"
+                                    />
+                                    <span
+                                        id="ajuda-valor-financiado"
+                                        class="texto-ajuda campo-formulario__ajuda"
+                                    >
+                                        Valor total que deseja financiar
+                                    </span>
+                                </div>
+
+                                <!-- Taxa de Juros -->
+                                <div class="campo-formulario">
+                                    <label for="taxa-juros" class="label campo-formulario__label">
+                                        Taxa de Juros Mensal (%)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="taxa-juros"
+                                        class="input campo-formulario__input"
+                                        placeholder="Ex: 1.5"
+                                        aria-describedby="ajuda-taxa-juros"
+                                    />
+                                    <span
+                                        id="ajuda-taxa-juros"
+                                        class="texto-ajuda campo-formulario__ajuda"
+                                    >
+                                        Taxa de juros ao mês em porcentagem
+                                    </span>
+                                </div>
+
+                                <!-- Número de Meses -->
+                                <div class="campo-formulario">
+                                    <label for="numero-meses" class="label campo-formulario__label">
+                                        Número de Meses
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="numero-meses"
+                                        class="input campo-formulario__input"
+                                        placeholder="Ex: 24"
+                                        aria-describedby="ajuda-numero-meses"
+                                    />
+                                    <span
+                                        id="ajuda-numero-meses"
+                                        class="texto-ajuda campo-formulario__ajuda"
+                                    >
+                                        Prazo do financiamento em meses
+                                    </span>
+                                </div>
+
+                                <!-- Valor da Prestação -->
+                                <div class="campo-formulario">
+                                    <label
+                                        for="valor-prestacao"
+                                        class="label campo-formulario__label"
+                                    >
+                                        Valor da Prestação (R$)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="valor-prestacao"
+                                        class="input campo-formulario__input"
+                                        placeholder="Ex: 2500"
+                                        aria-describedby="ajuda-valor-prestacao"
+                                    />
+                                    <span
+                                        id="ajuda-valor-prestacao"
+                                        class="texto-ajuda campo-formulario__ajuda"
+                                    >
+                                        Valor fixo de cada parcela mensal
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="calculadora__acoes">
+                                <div class="calculadora__botoes">
+                                    <button
+                                        type="button"
+                                        id="botao-calcular"
+                                        class="botao botao--primario"
+                                    >
+                                        Calcular
+                                    </button>
+                                    <button
+                                        type="button"
+                                        id="botao-limpar"
+                                        class="botao botao--secundario"
+                                    >
+                                        Limpar
+                                    </button>
+                                </div>
+
+                                <!-- Mensagem de erro geral -->
+                                <div id="erro-geral" class="mensagem-erro" role="alert"></div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Área de Resultados -->
+                    <div id="resultados"></div>
+                </div>
+            </main>
+
+            <footer
+                style="
+                    padding: var(--espacamento-xl) 0;
+                    text-align: center;
+                    color: var(--cor-texto-terciario);
+                    border-top: 1px solid var(--cor-borda);
+                    margin-top: var(--espacamento-3xl);
+                "
             >
-            <span class="seletor-tema__toggle-slider"></span>
-          </label>
+                <p style="margin-bottom: var(--espacamento-sm)">
+                    <strong>Calculadora de Financiamento - Sistema Price</strong>
+                </p>
+                <p style="font-size: var(--tamanho-fonte-sm); margin-bottom: var(--espacamento-xs)">
+                    Inspirado na
+                    <a
+                        href="https://www3.bcb.gov.br/CALCIDADAO/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: var(--cor-primaria)"
+                    >
+                        Calculadora do Banco Central
+                    </a>
+                </p>
+                <p style="font-size: var(--tamanho-fonte-sm); margin-bottom: var(--espacamento-xs)">
+                    Desenvolvido com
+                    <a
+                        href="https://claude.com/claude-code"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: var(--cor-primaria)"
+                    >
+                        Claude Code
+                    </a>
+                </p>
+                <p style="font-size: var(--tamanho-fonte-sm)">
+                    <a
+                        href="https://github.com/dwildt/juros"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: var(--cor-primaria)"
+                    >
+                        GitHub
+                    </a>
+                    •
+                    <a
+                        href="https://github.com/sponsors/dwildt"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: var(--cor-primaria)"
+                    >
+                        Apoie o projeto
+                    </a>
+                </p>
+            </footer>
         </div>
-      </div>
-    </header>
 
-    <main style="padding: var(--espacamento-xl) 0;">
-      <div class="calculadora">
-        <form id="formulario-calculadora" class="cartao">
-          <div class="cartao__cabecalho">
-            <h2 class="cartao__titulo">Calcular Financiamento</h2>
-            <p class="cartao__subtitulo">
-              Preencha 3 campos e deixe 1 vazio para calcular
-            </p>
-          </div>
-
-          <div class="cartao__corpo">
-            <div class="calculadora__campos">
-              <!-- Valor Financiado -->
-              <div class="campo-formulario">
-                <label for="valor-financiado" class="label campo-formulario__label">
-                  Valor Financiado (R$)
-                </label>
-                <input
-                  type="text"
-                  id="valor-financiado"
-                  class="input campo-formulario__input"
-                  placeholder="Ex: 50000"
-                  aria-describedby="ajuda-valor-financiado"
-                >
-                <span id="ajuda-valor-financiado" class="texto-ajuda campo-formulario__ajuda">
-                  Valor total que deseja financiar
-                </span>
-              </div>
-
-              <!-- Taxa de Juros -->
-              <div class="campo-formulario">
-                <label for="taxa-juros" class="label campo-formulario__label">
-                  Taxa de Juros Mensal (%)
-                </label>
-                <input
-                  type="text"
-                  id="taxa-juros"
-                  class="input campo-formulario__input"
-                  placeholder="Ex: 1.5"
-                  aria-describedby="ajuda-taxa-juros"
-                >
-                <span id="ajuda-taxa-juros" class="texto-ajuda campo-formulario__ajuda">
-                  Taxa de juros ao mês em porcentagem
-                </span>
-              </div>
-
-              <!-- Número de Meses -->
-              <div class="campo-formulario">
-                <label for="numero-meses" class="label campo-formulario__label">
-                  Número de Meses
-                </label>
-                <input
-                  type="text"
-                  id="numero-meses"
-                  class="input campo-formulario__input"
-                  placeholder="Ex: 24"
-                  aria-describedby="ajuda-numero-meses"
-                >
-                <span id="ajuda-numero-meses" class="texto-ajuda campo-formulario__ajuda">
-                  Prazo do financiamento em meses
-                </span>
-              </div>
-
-              <!-- Valor da Prestação -->
-              <div class="campo-formulario">
-                <label for="valor-prestacao" class="label campo-formulario__label">
-                  Valor da Prestação (R$)
-                </label>
-                <input
-                  type="text"
-                  id="valor-prestacao"
-                  class="input campo-formulario__input"
-                  placeholder="Ex: 2500"
-                  aria-describedby="ajuda-valor-prestacao"
-                >
-                <span id="ajuda-valor-prestacao" class="texto-ajuda campo-formulario__ajuda">
-                  Valor fixo de cada parcela mensal
-                </span>
-              </div>
-            </div>
-
-            <div class="calculadora__acoes">
-              <div class="calculadora__botoes">
-                <button type="button" id="botao-calcular" class="botao botao--primario">
-                  Calcular
-                </button>
-                <button type="button" id="botao-limpar" class="botao botao--secundario">
-                  Limpar
-                </button>
-              </div>
-
-              <!-- Mensagem de erro geral -->
-              <div id="erro-geral" class="mensagem-erro" role="alert"></div>
-            </div>
-          </div>
-        </form>
-
-        <!-- Área de Resultados -->
-        <div id="resultados"></div>
-      </div>
-    </main>
-
-    <footer style="padding: var(--espacamento-xl) 0; text-align: center; color: var(--cor-texto-terciario); border-top: 1px solid var(--cor-borda); margin-top: var(--espacamento-3xl);">
-      <p style="margin-bottom: var(--espacamento-sm);">
-        <strong>Calculadora de Financiamento - Sistema Price</strong>
-      </p>
-      <p style="font-size: var(--tamanho-fonte-sm); margin-bottom: var(--espacamento-xs);">
-        Inspirado na
-        <a href="https://www3.bcb.gov.br/CALCIDADAO/" target="_blank" rel="noopener noreferrer" style="color: var(--cor-primaria);">
-          Calculadora do Banco Central
-        </a>
-      </p>
-      <p style="font-size: var(--tamanho-fonte-sm); margin-bottom: var(--espacamento-xs);">
-        Desenvolvido com
-        <a href="https://claude.com/claude-code" target="_blank" rel="noopener noreferrer" style="color: var(--cor-primaria);">
-          Claude Code
-        </a>
-      </p>
-      <p style="font-size: var(--tamanho-fonte-sm);">
-        <a href="https://github.com/dwildt/juros" target="_blank" rel="noopener noreferrer" style="color: var(--cor-primaria);">
-          GitHub
-        </a>
-        •
-        <a href="https://github.com/sponsors/dwildt" target="_blank" rel="noopener noreferrer" style="color: var(--cor-primaria);">
-          Apoie o projeto
-        </a>
-      </p>
-    </footer>
-  </div>
-
-  <!-- Scripts -->
-  <script type="module" src="app.js"></script>
-</body>
+        <!-- Scripts -->
+        <script type="module" src="app.js"></script>
+    </body>
 </html>

@@ -6,93 +6,100 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* === ELEMENTOS HTML === */
 html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--fonte-principal);
-  font-size: var(--tamanho-fonte-md);
-  line-height: var(--altura-linha-normal);
-  color: var(--cor-texto-primario);
-  background-color: var(--cor-fundo);
-  min-height: 100vh;
-  transition: background-color var(--transicao-normal),
-              color var(--transicao-normal);
+    font-family: var(--fonte-principal);
+    font-size: var(--tamanho-fonte-md);
+    line-height: var(--altura-linha-normal);
+    color: var(--cor-texto-primario);
+    background-color: var(--cor-fundo);
+    min-height: 100vh;
+    transition:
+        background-color var(--transicao-normal),
+        color var(--transicao-normal);
 }
 
 /* === TIPOGRAFIA === */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: var(--espacamento-md);
-  font-weight: var(--peso-fonte-bold);
-  line-height: var(--altura-linha-compacta);
-  color: var(--cor-texto-primario);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: var(--espacamento-md);
+    font-weight: var(--peso-fonte-bold);
+    line-height: var(--altura-linha-compacta);
+    color: var(--cor-texto-primario);
 }
 
 h1 {
-  font-size: var(--tamanho-fonte-3xl);
+    font-size: var(--tamanho-fonte-3xl);
 }
 
 h2 {
-  font-size: var(--tamanho-fonte-2xl);
+    font-size: var(--tamanho-fonte-2xl);
 }
 
 h3 {
-  font-size: var(--tamanho-fonte-xl);
+    font-size: var(--tamanho-fonte-xl);
 }
 
 h4 {
-  font-size: var(--tamanho-fonte-lg);
+    font-size: var(--tamanho-fonte-lg);
 }
 
 h5 {
-  font-size: var(--tamanho-fonte-md);
+    font-size: var(--tamanho-fonte-md);
 }
 
 h6 {
-  font-size: var(--tamanho-fonte-sm);
+    font-size: var(--tamanho-fonte-sm);
 }
 
 p {
-  margin-bottom: var(--espacamento-md);
-  max-width: var(--largura-maxima-texto);
+    margin-bottom: var(--espacamento-md);
+    max-width: var(--largura-maxima-texto);
 }
 
 /* === LINKS === */
 a {
-  color: var(--cor-primaria);
-  text-decoration: none;
-  transition: color var(--transicao-rapida);
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color var(--transicao-rapida);
 }
 
 a:hover {
-  color: var(--cor-primaria-hover);
-  text-decoration: underline;
+    color: var(--cor-primaria-hover);
+    text-decoration: underline;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--cor-primaria);
-  outline-offset: 2px;
-  border-radius: var(--raio-borda-sm);
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+    border-radius: var(--raio-borda-sm);
 }
 
 /* === LISTAS === */
-ul, ol {
-  margin-bottom: var(--espacamento-md);
-  padding-left: var(--espacamento-xl);
+ul,
+ol {
+    margin-bottom: var(--espacamento-md);
+    padding-left: var(--espacamento-xl);
 }
 
 li {
-  margin-bottom: var(--espacamento-sm);
+    margin-bottom: var(--espacamento-sm);
 }
 
 /* === FORMULÁRIOS === */
@@ -100,99 +107,99 @@ input,
 textarea,
 select,
 button {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 button {
-  cursor: pointer;
-  border: none;
-  background: none;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* === IMAGENS === */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* === TABELAS === */
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 /* === ACESSIBILIDADE === */
 /* Remove animações para quem prefere movimento reduzido */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Foco visível para navegação por teclado */
 :focus-visible {
-  outline: 2px solid var(--cor-primaria);
-  outline-offset: 2px;
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
 }
 
 /* === UTILITÁRIOS === */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .container {
-  max-width: var(--largura-maxima-conteudo);
-  margin: 0 auto;
-  padding: 0 var(--espacamento-md);
+    max-width: var(--largura-maxima-conteudo);
+    margin: 0 auto;
+    padding: 0 var(--espacamento-md);
 }
 
 /* === SCROLLBAR PERSONALIZADA === */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cor-superficie);
+    background: var(--cor-superficie);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--cor-borda);
-  border-radius: var(--raio-borda-md);
+    background: var(--cor-borda);
+    border-radius: var(--raio-borda-md);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cor-texto-terciario);
+    background: var(--cor-texto-terciario);
 }
 
 /* === SELEÇÃO DE TEXTO === */
 ::selection {
-  background-color: var(--cor-primaria-clara);
-  color: var(--cor-fundo);
+    background-color: var(--cor-primaria-clara);
+    color: var(--cor-fundo);
 }
 
 ::-moz-selection {
-  background-color: var(--cor-primaria-clara);
-  color: var(--cor-fundo);
+    background-color: var(--cor-primaria-clara);
+    color: var(--cor-fundo);
 }

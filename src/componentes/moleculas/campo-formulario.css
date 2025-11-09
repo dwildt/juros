@@ -4,29 +4,29 @@
  */
 
 .campo-formulario {
-  margin-bottom: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-lg);
 }
 
 .campo-formulario__label {
-  /* Usa estilos de .label */
+    /* Usa estilos de .label */
 }
 
 .campo-formulario__input {
-  /* Usa estilos de .input */
+    /* Usa estilos de .input */
 }
 
 .campo-formulario__ajuda {
-  /* Usa estilos de .texto-ajuda */
+    /* Usa estilos de .texto-ajuda */
 }
 
 .campo-formulario--erro .campo-formulario__label {
-  color: var(--cor-erro);
+    color: var(--cor-erro);
 }
 
 .campo-formulario--erro .campo-formulario__input {
-  border-color: var(--cor-erro);
+    border-color: var(--cor-erro);
 }
 
 .campo-formulario--sucesso .campo-formulario__input {
-  border-color: var(--cor-sucesso);
+    border-color: var(--cor-sucesso);
 }

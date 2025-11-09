@@ -4,118 +4,118 @@
  */
 
 .seletor-tema {
-  display: flex;
-  align-items: center;
-  gap: var(--espacamento-md);
-  padding: var(--espacamento-md);
-  background-color: var(--cor-superficie);
-  border-radius: var(--raio-borda-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-md);
+    padding: var(--espacamento-md);
+    background-color: var(--cor-superficie);
+    border-radius: var(--raio-borda-lg);
 }
 
 .seletor-tema__grupo {
-  display: flex;
-  align-items: center;
-  gap: var(--espacamento-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
 }
 
 .seletor-tema__label {
-  font-size: var(--tamanho-fonte-sm);
-  font-weight: var(--peso-fonte-medio);
-  color: var(--cor-texto-secundario);
+    font-size: var(--tamanho-fonte-sm);
+    font-weight: var(--peso-fonte-medio);
+    color: var(--cor-texto-secundario);
 }
 
 .seletor-tema__cores {
-  display: flex;
-  gap: var(--espacamento-xs);
+    display: flex;
+    gap: var(--espacamento-xs);
 }
 
 .seletor-tema__cor {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--raio-borda-circular);
-  border: var(--largura-borda-media) solid transparent;
-  cursor: pointer;
-  transition: all var(--transicao-rapida);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--raio-borda-circular);
+    border: var(--largura-borda-media) solid transparent;
+    cursor: pointer;
+    transition: all var(--transicao-rapida);
 }
 
 .seletor-tema__cor:hover {
-  transform: scale(1.1);
-  box-shadow: var(--sombra-media);
+    transform: scale(1.1);
+    box-shadow: var(--sombra-media);
 }
 
 .seletor-tema__cor:focus-visible {
-  outline: 2px solid var(--cor-texto-primario);
-  outline-offset: 2px;
+    outline: 2px solid var(--cor-texto-primario);
+    outline-offset: 2px;
 }
 
 .seletor-tema__cor--ativo {
-  border-color: var(--cor-texto-primario);
-  box-shadow: var(--sombra-media);
+    border-color: var(--cor-texto-primario);
+    box-shadow: var(--sombra-media);
 }
 
 .seletor-tema__cor--azul {
-  background-color: #0066CC;
+    background-color: #0066cc;
 }
 
 .seletor-tema__cor--verde {
-  background-color: #00A86B;
+    background-color: #00a86b;
 }
 
 .seletor-tema__cor--laranja {
-  background-color: #FF8C00;
+    background-color: #ff8c00;
 }
 
 .seletor-tema__cor--roxo {
-  background-color: #7B3294;
+    background-color: #7b3294;
 }
 
 /* Toggle para modo escuro */
 .seletor-tema__toggle {
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 24px;
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
 }
 
 .seletor-tema__toggle-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .seletor-tema__toggle-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--cor-borda);
-  border-radius: 24px;
-  transition: background-color var(--transicao-rapida);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cor-borda);
+    border-radius: 24px;
+    transition: background-color var(--transicao-rapida);
 }
 
 .seletor-tema__toggle-slider::before {
-  position: absolute;
-  content: '';
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform var(--transicao-rapida);
+    position: absolute;
+    content: '';
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform var(--transicao-rapida);
 }
 
 .seletor-tema__toggle-input:checked + .seletor-tema__toggle-slider {
-  background-color: var(--cor-primaria);
+    background-color: var(--cor-primaria);
 }
 
 .seletor-tema__toggle-input:checked + .seletor-tema__toggle-slider::before {
-  transform: translateX(24px);
+    transform: translateX(24px);
 }
 
 .seletor-tema__toggle-input:focus-visible + .seletor-tema__toggle-slider {
-  outline: 2px solid var(--cor-primaria);
-  outline-offset: 2px;
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
 }

@@ -2,9 +2,9 @@
  * Tema Azul - Profissional e Confiável
  */
 
-[data-tema-cor="azul"] {
-  --cor-primaria: #0066CC;
-  --cor-primaria-escura: #004C99;
-  --cor-primaria-clara: #3385D6;
-  --cor-primaria-hover: #0052A3;
+[data-tema-cor='azul'] {
+    --cor-primaria: #0066cc;
+    --cor-primaria-escura: #004c99;
+    --cor-primaria-clara: #3385d6;
+    --cor-primaria-hover: #0052a3;
 }
