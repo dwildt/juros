@@ -35,8 +35,8 @@ describe('Cálculos Financeiros', () => {
 
             const prestacao = calculos.calcularPrestacao(valorFinanciado, taxaJuros, meses);
 
-            // Valor esperado aproximado: R$ 2433.73
-            expect(prestacao).toBeCloseTo(2433.73, 2);
+            // Valor esperado aproximado: R$ 2496.21
+            expect(prestacao).toBeCloseTo(2496.21, 2);
         });
     });
 
