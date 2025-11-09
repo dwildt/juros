@@ -129,10 +129,11 @@ Configuração para análise estática de código JavaScript:
 Formatação automática e consistente:
 - Single quotes para strings
 - Semicolons obrigatórios
-- Tab width: 2 espaços
+- Tab width: 4 espaços
 - Line ending: LF (Unix)
 - Trailing comma: none
 - Print width: 100 caracteres
+- Indentação gerenciada pelo Prettier (ESLint não valida indent)
 
 ### Scripts de Qualidade
 ```bash
@@ -141,6 +142,34 @@ npm run lint:fix      # Corrigir automaticamente
 npm run format        # Formatar código
 npm run format:check  # Verificar formatação
 ```
+
+### Fluxo de Trabalho Obrigatório
+
+**ANTES de commitar código:**
+
+1. **Formatar o código:**
+   ```bash
+   npm run format
+   ```
+
+2. **Verificar lint:**
+   ```bash
+   npm run lint
+   ```
+
+3. **Rodar testes:**
+   ```bash
+   npm test
+   ```
+
+4. **Somente após tudo passar, fazer commit**
+
+**Importante:**
+- ❌ NUNCA commite código sem formatar
+- ❌ NUNCA commite código com erros de lint
+- ❌ NUNCA commite código com testes falhando
+- ✅ SEMPRE rode `npm run format` antes de commitar
+- ✅ O CI/CD do GitHub Actions validará tudo automaticamente
 
 ## Configuração de Testes
 
