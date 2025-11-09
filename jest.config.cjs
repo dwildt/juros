@@ -6,6 +6,15 @@ module.exports = {
   // Ambiente de testes (jsdom para simular navegador)
   testEnvironment: 'jsdom',
 
+  // Suporte para ES Modules
+  extensionsToTreatAsEsm: ['.js'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
+  transform: {
+    '^.+\\.js$': ['babel-jest', { configFile: false, presets: [['@babel/preset-env', { targets: { node: 'current' } }]] }],
+  },
+
   // Padrão de arquivos de teste
   testMatch: [
     '**/testes/unitarios/**/*.test.js',

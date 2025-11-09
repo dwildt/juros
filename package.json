@@ -27,7 +27,9 @@
   "author": "dwildt",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.6",
     "@jest/globals": "^29.7.0",
+    "babel-jest": "^29.7.0",
     "cypress": "^13.6.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
