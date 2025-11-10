@@ -8,7 +8,6 @@ Calculadora de financiamento com prestações fixas (Sistema Price), inspirada n
 - **Repositório**: [https://github.com/dwildt/juros](https://github.com/dwildt/juros)
 - **Apoie o projeto**: [GitHub Sponsors](https://github.com/sponsors/dwildt)
 
-[![CI](https://github.com/dwildt/juros/workflows/CI%20-%20Integração%20Contínua/badge.svg)](https://github.com/dwildt/juros/actions)
 [![Deploy](https://github.com/dwildt/juros/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/dwildt/juros/actions)
 
 ## Funcionalidades
@@ -254,7 +253,6 @@ O projeto utiliza GitHub Actions para CI/CD automático:
 Adicione ao README para mostrar status:
 
 ```markdown
-![CI](https://github.com/seu-usuario/juros/workflows/CI%20-%20Integração%20Contínua/badge.svg)
 ![Deploy](https://github.com/seu-usuario/juros/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
 ```
 
