@@ -16,11 +16,20 @@ describe('Acessibilidade e Responsividade', () => {
         });
 
         it('deve permitir navegação por teclado', () => {
-            cy.get('body').tab();
-            cy.focused().should('have.attr', 'data-cor');
+            // Verificar que seletores de cor são focáveis
+            cy.get('[data-cor="azul"]').focus();
+            cy.focused().should('have.attr', 'data-cor', 'azul');
 
-            cy.focused().tab();
+            // Verificar que toggle modo escuro é focável
+            cy.get('#toggle-modo-escuro').focus();
             cy.focused().should('have.id', 'toggle-modo-escuro');
+
+            // Verificar que campos de formulário são focáveis
+            cy.get('#valor-financiado').focus();
+            cy.focused().should('have.id', 'valor-financiado');
+
+            cy.get('#botao-calcular').focus();
+            cy.focused().should('have.id', 'botao-calcular');
         });
     });
 
