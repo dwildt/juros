@@ -101,6 +101,12 @@ describe('Cálculos Financeiros', () => {
 
             expect(taxa).toBeCloseTo(0, 6);
         });
+
+        test('deve lançar erro quando não consegue calcular com precisão', () => {
+            expect(() => {
+                calculos.calcularTaxaJuros(10000, 24, 500, 0.000000001, 1);
+            }).toThrow('Não foi possível calcular a taxa de juros com a precisão desejada');
+        });
     });
 
     describe('calcularValorFinanciado', () => {

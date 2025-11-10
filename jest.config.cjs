@@ -50,7 +50,7 @@ module.exports = {
   },
 
   // Arquivos de configuração a serem executados antes dos testes
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>/testes/setup.js'],
 
   // Extensões de módulo
   moduleFileExtensions: ['js', 'json'],

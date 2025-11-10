@@ -29,6 +29,12 @@ describe('Formatação', () => {
             expect(formatacao.formatarNumero(1234.5678, 4)).toBe('1.234,5678');
             expect(formatacao.formatarNumero(10, 0)).toBe('10');
         });
+
+        test('deve lidar com valores inválidos', () => {
+            expect(formatacao.formatarNumero(NaN)).toBe('0,00');
+            expect(formatacao.formatarNumero('texto')).toBe('0,00');
+            expect(formatacao.formatarNumero(NaN, 0)).toBe('0');
+        });
     });
 
     describe('formatarPercentual', () => {
@@ -45,6 +51,12 @@ describe('Formatação', () => {
 
         test('deve respeitar casas decimais', () => {
             expect(formatacao.formatarPercentual(0.12345, false, 4)).toBe('12,3450%');
+        });
+
+        test('deve lidar com valores inválidos', () => {
+            expect(formatacao.formatarPercentual(NaN)).toBe('0,00%');
+            expect(formatacao.formatarPercentual('texto')).toBe('0,00%');
+            expect(formatacao.formatarPercentual(NaN, false, 0)).toBe('0%');
         });
     });
 
@@ -70,6 +82,12 @@ describe('Formatação', () => {
         test('deve arredondar valores decimais', () => {
             expect(formatacao.formatarMeses(12.6)).toBe('13 meses (1 ano e 1 mês)');
         });
+
+        test('deve lidar com valores inválidos', () => {
+            expect(formatacao.formatarMeses(NaN)).toBe('0 meses');
+            expect(formatacao.formatarMeses(-5)).toBe('0 meses');
+            expect(formatacao.formatarMeses('texto')).toBe('0 meses');
+        });
     });
 
     describe('desformatarMoeda', () => {
@@ -82,6 +100,7 @@ describe('Formatação', () => {
         test('deve lidar com valores inválidos', () => {
             expect(formatacao.desformatarMoeda('abc')).toBeNull();
             expect(formatacao.desformatarMoeda('')).toBeNull();
+            expect(formatacao.desformatarMoeda(123)).toBeNull();
         });
     });
 
@@ -90,6 +109,11 @@ describe('Formatação', () => {
             expect(formatacao.desformatarPercentual('1,5%')).toBeCloseTo(0.015, 4);
             expect(formatacao.desformatarPercentual('10%')).toBeCloseTo(0.1, 4);
             expect(formatacao.desformatarPercentual('50%')).toBeCloseTo(0.5, 4);
+        });
+
+        test('deve lidar com valores inválidos', () => {
+            expect(formatacao.desformatarPercentual('abc')).toBeNull();
+            expect(formatacao.desformatarPercentual(123)).toBeNull();
         });
     });
 
@@ -106,6 +130,35 @@ describe('Formatação', () => {
             expect(formatacao.arredondarNumero(1.234567, 2)).toBe(1.23);
             expect(formatacao.arredondarNumero(1.235, 2)).toBe(1.24);
             expect(formatacao.arredondarNumero(1.999, 2)).toBe(2.0);
+        });
+    });
+
+    describe('formatarInputEmTempoReal', () => {
+        test('deve formatar como moeda', () => {
+            expect(formatacao.formatarInputEmTempoReal('1234.56', 'moeda')).toBe('R$ 1.234,56');
+            expect(formatacao.formatarInputEmTempoReal('1234,56', 'moeda')).toBe('R$ 1.234,56');
+        });
+
+        test('deve formatar como percentual', () => {
+            expect(formatacao.formatarInputEmTempoReal('1.5', 'percentual')).toBe('1,50%');
+            expect(formatacao.formatarInputEmTempoReal('10', 'percentual')).toBe('10,00%');
+        });
+
+        test('deve formatar como número', () => {
+            expect(formatacao.formatarInputEmTempoReal('1234.56', 'numero')).toBe('1.234,56');
+        });
+
+        test('deve retornar string vazia para valores inválidos', () => {
+            expect(formatacao.formatarInputEmTempoReal('')).toBe('');
+            expect(formatacao.formatarInputEmTempoReal('abc')).toBe('');
+        });
+
+        test('deve lidar com pontos e vírgulas duplicados', () => {
+            expect(formatacao.formatarInputEmTempoReal('1.2.3.4.5', 'numero')).toBe('1,23');
+        });
+
+        test('deve usar tipo padrão quando tipo desconhecido', () => {
+            expect(formatacao.formatarInputEmTempoReal('123.45', 'invalido')).toBe('123.45');
         });
     });
 });
