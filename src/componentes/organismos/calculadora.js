@@ -35,11 +35,37 @@ export class Calculadora {
             this.limpar();
         });
 
-        // Limpar mensagens de erro ao digitar
-        Object.values(this.campos).forEach((campo) => {
-            campo.addEventListener('input', () => {
-                this.limparErro(campo);
-            });
+        // Configuração de formatação em tempo real para cada campo
+        this.configurarFormatacaoTempoReal();
+    }
+
+    configurarFormatacaoTempoReal() {
+        // Valor Financiado: moeda com 2 decimais
+        this.campos.valorFinanciado.addEventListener('input', (e) => {
+            const valorFormatado = formatacao.formatarInputEmTempoReal(e.target.value, 'moeda');
+            e.target.value = valorFormatado;
+            this.limparErro(e.target);
+        });
+
+        // Taxa de Juros: percentual com 4 decimais
+        this.campos.taxaJuros.addEventListener('input', (e) => {
+            const valorFormatado = formatacao.formatarInputEmTempoReal(e.target.value, 'percentual');
+            e.target.value = valorFormatado;
+            this.limparErro(e.target);
+        });
+
+        // Número de Meses: número inteiro (0 decimais)
+        this.campos.numeroDeMeses.addEventListener('input', (e) => {
+            const valorFormatado = formatacao.formatarInputEmTempoReal(e.target.value, 'numero');
+            e.target.value = valorFormatado;
+            this.limparErro(e.target);
+        });
+
+        // Valor da Prestação: moeda com 2 decimais
+        this.campos.valorPrestacao.addEventListener('input', (e) => {
+            const valorFormatado = formatacao.formatarInputEmTempoReal(e.target.value, 'moeda');
+            e.target.value = valorFormatado;
+            this.limparErro(e.target);
         });
     }
 

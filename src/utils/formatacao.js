@@ -139,42 +139,69 @@ export function desformatarPercentual(textoPercentual) {
 
 /**
  * Formata um input em tempo real enquanto o usuário digita
+ * Restringe casas decimais conforme o tipo:
+ * - moeda: 2 decimais
+ * - percentual: 4 decimais
+ * - numero: 0 decimais (inteiro)
  *
  * @param {string} valor - Valor atual do input
  * @param {string} tipo - Tipo de formatação ('moeda', 'percentual', 'numero')
+ * @param {number} maxDecimais - Máximo de casas decimais permitidas (opcional)
  * @returns {string} Valor formatado
  */
-export function formatarInputEmTempoReal(valor, tipo = 'moeda') {
+export function formatarInputEmTempoReal(valor, tipo = 'moeda', maxDecimais = null) {
     if (!valor) return '';
 
     // Remove tudo exceto números, vírgula e ponto
     let valorLimpo = valor.replace(/[^\d.,]/g, '');
 
-    // Substitui vírgula por ponto para processamento
-    valorLimpo = valorLimpo.replace(',', '.');
+    // Se não há números, retorna vazio
+    if (!valorLimpo) return '';
 
-    // Remove pontos/vírgulas duplicados
-    const partes = valorLimpo.split('.');
+    // Substitui todas as vírgulas por pontos
+    valorLimpo = valorLimpo.replace(/,/g, '.');
+
+    // Remove pontos duplicados - mantém apenas o primeiro
+    let partes = valorLimpo.split('.');
     if (partes.length > 2) {
         valorLimpo = partes[0] + '.' + partes.slice(1).join('');
     }
 
-    const numero = parseFloat(valorLimpo);
-
-    if (isNaN(numero)) {
-        return '';
+    // Determina o número máximo de casas decimais baseado no tipo
+    let casasDecimais = maxDecimais;
+    if (casasDecimais === null) {
+        switch (tipo) {
+            case 'moeda':
+                casasDecimais = 2;
+                break;
+            case 'percentual':
+                casasDecimais = 4;
+                break;
+            case 'numero':
+                casasDecimais = 0;
+                break;
+            default:
+                casasDecimais = 2;
+        }
     }
 
-    switch (tipo) {
-        case 'moeda':
-            return formatarMoeda(numero);
-        case 'percentual':
-            return formatarPercentual(numero, true);
-        case 'numero':
-            return formatarNumero(numero);
-        default:
-            return valorLimpo;
+    // Restringe casas decimais
+    // Recalcula partes após processar pontos duplicados
+    partes = valorLimpo.split('.');
+
+    if (casasDecimais === 0) {
+        // Para números inteiros, remove qualquer parte decimal
+        valorLimpo = partes[0];
+    } else if (partes.length === 2) {
+        // Limita casas decimais após o ponto
+        const parteInteira = partes[0];
+        const parteDecimal = partes[1].slice(0, casasDecimais);
+        valorLimpo = parteInteira + '.' + parteDecimal;
     }
+
+    // Retorna o valor limpo sem formatação para permitir edição contínua
+    // A formatação completa (R$, %, etc) será aplicada apenas no blur
+    return valorLimpo.replace('.', ',');
 }
 
 /**

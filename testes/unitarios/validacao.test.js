@@ -46,6 +46,28 @@ describe('Validação', () => {
         });
     });
 
+    describe('contarCasasDecimais', () => {
+        test('deve contar casas decimais corretamente', () => {
+            expect(validacao.contarCasasDecimais(10)).toBe(0);
+            expect(validacao.contarCasasDecimais(10.5)).toBe(1);
+            expect(validacao.contarCasasDecimais(10.50)).toBe(1);
+            expect(validacao.contarCasasDecimais(10.123)).toBe(3);
+            expect(validacao.contarCasasDecimais(10.1234)).toBe(4);
+            expect(validacao.contarCasasDecimais(0.12345)).toBe(5);
+        });
+
+        test('deve lidar com valores sem decimais', () => {
+            expect(validacao.contarCasasDecimais(0)).toBe(0);
+            expect(validacao.contarCasasDecimais(100)).toBe(0);
+            expect(validacao.contarCasasDecimais(-50)).toBe(0);
+        });
+
+        test('deve lidar com valores inválidos', () => {
+            expect(validacao.contarCasasDecimais(NaN)).toBe(0);
+            expect(validacao.contarCasasDecimais(Infinity)).toBe(0);
+        });
+    });
+
     describe('validarValorFinanciado', () => {
         test('deve validar valores financiados válidos', () => {
             const resultado = validacao.validarValorFinanciado(10000);
@@ -61,6 +83,26 @@ describe('Validação', () => {
 
             resultado = validacao.validarValorFinanciado(NaN);
             expect(resultado.valido).toBe(false);
+        });
+
+        test('deve rejeitar valores acima do limite máximo', () => {
+            const resultado = validacao.validarValorFinanciado(1000000001);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('máximo');
+        });
+
+        test('deve rejeitar valores com mais de 2 casas decimais', () => {
+            const resultado = validacao.validarValorFinanciado(10000.123);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('2 casas decimais');
+        });
+
+        test('deve aceitar valores com até 2 casas decimais', () => {
+            let resultado = validacao.validarValorFinanciado(10000.12);
+            expect(resultado.valido).toBe(true);
+
+            resultado = validacao.validarValorFinanciado(10000.5);
+            expect(resultado.valido).toBe(true);
         });
     });
 
@@ -86,6 +128,20 @@ describe('Validação', () => {
             resultado = validacao.validarTaxaJuros(NaN);
             expect(resultado.valido).toBe(false);
         });
+
+        test('deve rejeitar taxas com mais de 4 casas decimais', () => {
+            const resultado = validacao.validarTaxaJuros(1.12345);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('4 casas decimais');
+        });
+
+        test('deve aceitar taxas com até 4 casas decimais', () => {
+            let resultado = validacao.validarTaxaJuros(1.1234);
+            expect(resultado.valido).toBe(true);
+
+            resultado = validacao.validarTaxaJuros(1.12);
+            expect(resultado.valido).toBe(true);
+        });
     });
 
     describe('validarNumeroDeMeses', () => {
@@ -110,6 +166,20 @@ describe('Validação', () => {
             resultado = validacao.validarNumeroDeMeses(700);
             expect(resultado.valido).toBe(false);
         });
+
+        test('deve rejeitar números decimais (não inteiros)', () => {
+            const resultado = validacao.validarNumeroDeMeses(12.5);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('inteiro');
+        });
+
+        test('deve aceitar apenas números inteiros', () => {
+            let resultado = validacao.validarNumeroDeMeses(12);
+            expect(resultado.valido).toBe(true);
+
+            resultado = validacao.validarNumeroDeMeses(100);
+            expect(resultado.valido).toBe(true);
+        });
     });
 
     describe('validarValorPrestacao', () => {
@@ -124,6 +194,26 @@ describe('Validação', () => {
 
             resultado = validacao.validarValorPrestacao(-100);
             expect(resultado.valido).toBe(false);
+        });
+
+        test('deve rejeitar valores acima do limite máximo', () => {
+            const resultado = validacao.validarValorPrestacao(1000000001);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('máximo');
+        });
+
+        test('deve rejeitar valores com mais de 2 casas decimais', () => {
+            const resultado = validacao.validarValorPrestacao(500.123);
+            expect(resultado.valido).toBe(false);
+            expect(resultado.mensagem).toContain('2 casas decimais');
+        });
+
+        test('deve aceitar valores com até 2 casas decimais', () => {
+            let resultado = validacao.validarValorPrestacao(500.12);
+            expect(resultado.valido).toBe(true);
+
+            resultado = validacao.validarValorPrestacao(500.5);
+            expect(resultado.valido).toBe(true);
         });
     });
 

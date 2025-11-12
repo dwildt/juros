@@ -34,6 +34,42 @@ export function ehNumeroNaoNegativo(valor) {
 }
 
 /**
+ * Conta o número de casas decimais de um número
+ *
+ * @param {number} numero - Número a ser analisado
+ * @returns {number} Número de casas decimais
+ */
+export function contarCasasDecimais(numero) {
+    if (!ehNumeroValido(numero)) {
+        return 0;
+    }
+
+    // Converte para string e analisa a parte decimal
+    const numeroStr = numero.toString();
+
+    // Se tem notação científica, precisa tratar diferente
+    if (numeroStr.includes('e') || numeroStr.includes('E')) {
+        // Para números muito grandes ou pequenos em notação científica
+        const partes = numeroStr.split(/[eE]/);
+        const mantissa = partes[0];
+        const expoente = parseInt(partes[1], 10);
+
+        // Conta decimais na mantissa
+        const decimaisMantissa = mantissa.includes('.') ? mantissa.split('.')[1].length : 0;
+
+        // Ajusta pelo expoente
+        return Math.max(0, decimaisMantissa - expoente);
+    }
+
+    // Para números normais
+    if (numeroStr.includes('.')) {
+        return numeroStr.split('.')[1].length;
+    }
+
+    return 0;
+}
+
+/**
  * Valida o valor financiado
  *
  * @param {any} valor - Valor a ser validado
@@ -51,6 +87,23 @@ export function validarValorFinanciado(valor) {
         return {
             valido: false,
             mensagem: 'Valor financiado deve ser maior que zero'
+        };
+    }
+
+    // Limite máximo: 1 bilhão
+    if (valor > 1000000000) {
+        return {
+            valido: false,
+            mensagem: 'Valor financiado muito alto (máximo R$ 1.000.000.000,00)'
+        };
+    }
+
+    // Validar máximo de 2 casas decimais
+    const casasDecimais = contarCasasDecimais(valor);
+    if (casasDecimais > 2) {
+        return {
+            valido: false,
+            mensagem: 'Valor financiado deve ter no máximo 2 casas decimais'
         };
     }
 
@@ -86,6 +139,15 @@ export function validarTaxaJuros(taxa) {
         return {
             valido: false,
             mensagem: 'Taxa de juros muito alta (máximo 100%)'
+        };
+    }
+
+    // Validar máximo de 4 casas decimais
+    const casasDecimais = contarCasasDecimais(taxa);
+    if (casasDecimais > 4) {
+        return {
+            valido: false,
+            mensagem: 'Taxa de juros deve ter no máximo 4 casas decimais'
         };
     }
 
@@ -130,6 +192,14 @@ export function validarNumeroDeMeses(meses) {
         };
     }
 
+    // Validar que é um número inteiro (0 casas decimais)
+    if (!Number.isInteger(meses)) {
+        return {
+            valido: false,
+            mensagem: 'Número de meses deve ser um número inteiro'
+        };
+    }
+
     return {
         valido: true,
         mensagem: ''
@@ -154,6 +224,23 @@ export function validarValorPrestacao(prestacao) {
         return {
             valido: false,
             mensagem: 'Valor da prestação deve ser maior que zero'
+        };
+    }
+
+    // Limite máximo: 1 bilhão
+    if (prestacao > 1000000000) {
+        return {
+            valido: false,
+            mensagem: 'Valor da prestação muito alto (máximo R$ 1.000.000.000,00)'
+        };
+    }
+
+    // Validar máximo de 2 casas decimais
+    const casasDecimais = contarCasasDecimais(prestacao);
+    if (casasDecimais > 2) {
+        return {
+            valido: false,
+            mensagem: 'Valor da prestação deve ter no máximo 2 casas decimais'
         };
     }
 

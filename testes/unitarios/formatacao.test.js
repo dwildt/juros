@@ -134,18 +134,23 @@ describe('Formatação', () => {
     });
 
     describe('formatarInputEmTempoReal', () => {
-        test('deve formatar como moeda', () => {
-            expect(formatacao.formatarInputEmTempoReal('1234.56', 'moeda')).toBe('R$ 1.234,56');
-            expect(formatacao.formatarInputEmTempoReal('1234,56', 'moeda')).toBe('R$ 1.234,56');
+        test('deve limitar moeda a 2 casas decimais', () => {
+            expect(formatacao.formatarInputEmTempoReal('1234.56', 'moeda')).toBe('1234,56');
+            expect(formatacao.formatarInputEmTempoReal('1234,56', 'moeda')).toBe('1234,56');
+            expect(formatacao.formatarInputEmTempoReal('1234.567', 'moeda')).toBe('1234,56');
+            expect(formatacao.formatarInputEmTempoReal('1234.5678', 'moeda')).toBe('1234,56');
         });
 
-        test('deve formatar como percentual', () => {
-            expect(formatacao.formatarInputEmTempoReal('1.5', 'percentual')).toBe('1,50%');
-            expect(formatacao.formatarInputEmTempoReal('10', 'percentual')).toBe('10,00%');
+        test('deve limitar percentual a 4 casas decimais', () => {
+            expect(formatacao.formatarInputEmTempoReal('1.5', 'percentual')).toBe('1,5');
+            expect(formatacao.formatarInputEmTempoReal('1.5678', 'percentual')).toBe('1,5678');
+            expect(formatacao.formatarInputEmTempoReal('1.56789', 'percentual')).toBe('1,5678');
         });
 
-        test('deve formatar como número', () => {
-            expect(formatacao.formatarInputEmTempoReal('1234.56', 'numero')).toBe('1.234,56');
+        test('deve remover casas decimais para números inteiros', () => {
+            expect(formatacao.formatarInputEmTempoReal('1234', 'numero')).toBe('1234');
+            expect(formatacao.formatarInputEmTempoReal('1234.56', 'numero')).toBe('1234');
+            expect(formatacao.formatarInputEmTempoReal('1234,56', 'numero')).toBe('1234');
         });
 
         test('deve retornar string vazia para valores inválidos', () => {
@@ -154,11 +159,24 @@ describe('Formatação', () => {
         });
 
         test('deve lidar com pontos e vírgulas duplicados', () => {
-            expect(formatacao.formatarInputEmTempoReal('1.2.3.4.5', 'numero')).toBe('1,23');
+            // Pontos duplicados: primeiro ponto é mantido, resto vira parte decimal
+            expect(formatacao.formatarInputEmTempoReal('1.2.3.4.5', 'numero')).toBe('1');
+            // Vírgulas são convertidas para pontos, então 1,2,3,4 vira 1.234 -> limita a 2 decimais -> 1,23
+            expect(formatacao.formatarInputEmTempoReal('1,2,3,4', 'moeda')).toBe('1,23');
         });
 
-        test('deve usar tipo padrão quando tipo desconhecido', () => {
-            expect(formatacao.formatarInputEmTempoReal('123.45', 'invalido')).toBe('123.45');
+        test('deve usar casas decimais padrão para tipo desconhecido', () => {
+            expect(formatacao.formatarInputEmTempoReal('123.45', 'invalido')).toBe('123,45');
+            expect(formatacao.formatarInputEmTempoReal('123.456', 'invalido')).toBe('123,45');
+        });
+
+        test('deve remover caracteres não numéricos', () => {
+            // R$ 1.234,56 -> remove R$ e espaço -> 1.234,56 -> converte , para . -> 1.234.56
+            // -> primeiro . mantido, resto concatenado -> 1.23456 -> limita a 2 decimais -> 1,23
+            expect(formatacao.formatarInputEmTempoReal('R$ 1.234,56', 'moeda')).toBe('1,23');
+            expect(formatacao.formatarInputEmTempoReal('1.5%', 'percentual')).toBe('1,5');
+            // Teste simples sem formatação prévia
+            expect(formatacao.formatarInputEmTempoReal('R$ 100', 'moeda')).toBe('100');
         });
     });
 });
