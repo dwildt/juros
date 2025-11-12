@@ -31,7 +31,7 @@
             <header style="padding: var(--espacamento-xl) 0">
                 <h1
                     style="
-                        text-align: center;
+                        text-align: left;
                         color: var(--cor-primaria);
                         margin-bottom: var(--espacamento-md);
                     "
@@ -40,59 +40,13 @@
                 </h1>
                 <p
                     style="
-                        text-align: center;
+                        text-align: left;
                         color: var(--cor-texto-secundario);
                         margin-bottom: var(--espacamento-xl);
                     "
                 >
                     Sistema Price - Prestações Fixas
                 </p>
-
-                <!-- Seletor de Tema -->
-                <div class="seletor-tema">
-                    <div class="seletor-tema__grupo">
-                        <span class="seletor-tema__label">Cor:</span>
-                        <div class="seletor-tema__cores">
-                            <button
-                                class="seletor-tema__cor seletor-tema__cor--azul seletor-tema__cor--ativo"
-                                data-cor="azul"
-                                aria-label="Tema azul"
-                                aria-pressed="true"
-                            ></button>
-                            <button
-                                class="seletor-tema__cor seletor-tema__cor--verde"
-                                data-cor="verde"
-                                aria-label="Tema verde"
-                                aria-pressed="false"
-                            ></button>
-                            <button
-                                class="seletor-tema__cor seletor-tema__cor--laranja"
-                                data-cor="laranja"
-                                aria-label="Tema laranja"
-                                aria-pressed="false"
-                            ></button>
-                            <button
-                                class="seletor-tema__cor seletor-tema__cor--roxo"
-                                data-cor="roxo"
-                                aria-label="Tema roxo"
-                                aria-pressed="false"
-                            ></button>
-                        </div>
-                    </div>
-
-                    <div class="seletor-tema__grupo">
-                        <span class="seletor-tema__label">Modo Escuro:</span>
-                        <label class="seletor-tema__toggle">
-                            <input
-                                type="checkbox"
-                                id="toggle-modo-escuro"
-                                class="seletor-tema__toggle-input"
-                                aria-label="Alternar modo escuro"
-                            />
-                            <span class="seletor-tema__toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
             </header>
 
             <main style="padding: var(--espacamento-xl) 0">
@@ -226,12 +180,58 @@
             <footer
                 style="
                     padding: var(--espacamento-xl) 0;
-                    text-align: center;
+                    text-align: left;
                     color: var(--cor-texto-terciario);
                     border-top: 1px solid var(--cor-borda);
                     margin-top: var(--espacamento-3xl);
                 "
             >
+                <!-- Seletor de Tema -->
+                <div class="seletor-tema" style="margin-bottom: var(--espacamento-lg)">
+                    <div class="seletor-tema__grupo">
+                        <span class="seletor-tema__label">Cor:</span>
+                        <div class="seletor-tema__cores">
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--azul seletor-tema__cor--ativo"
+                                data-cor="azul"
+                                aria-label="Tema azul"
+                                aria-pressed="true"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--verde"
+                                data-cor="verde"
+                                aria-label="Tema verde"
+                                aria-pressed="false"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--laranja"
+                                data-cor="laranja"
+                                aria-label="Tema laranja"
+                                aria-pressed="false"
+                            ></button>
+                            <button
+                                class="seletor-tema__cor seletor-tema__cor--roxo"
+                                data-cor="roxo"
+                                aria-label="Tema roxo"
+                                aria-pressed="false"
+                            ></button>
+                        </div>
+                    </div>
+
+                    <div class="seletor-tema__grupo">
+                        <span class="seletor-tema__label">Modo Escuro:</span>
+                        <label class="seletor-tema__toggle">
+                            <input
+                                type="checkbox"
+                                id="toggle-modo-escuro"
+                                class="seletor-tema__toggle-input"
+                                aria-label="Alternar modo escuro"
+                            />
+                            <span class="seletor-tema__toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <p style="margin-bottom: var(--espacamento-sm)">
                     <strong>Calculadora de Financiamento - Sistema Price</strong>
                 </p>
