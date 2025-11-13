@@ -41,7 +41,7 @@ testes/
     └── calculadora.cy.js
 
 documentos/              # Documentação adicional
-tasks/                   # Histórico de tarefas e prompts
+tarefas/                 # Histórico de tarefas e prompts
 ```
 
 ## Sistema de Temas

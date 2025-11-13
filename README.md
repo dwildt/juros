@@ -179,7 +179,7 @@ juros/
 │   ├── unitarios/           # Testes Jest
 │   └── e2e/                 # Testes Cypress
 ├── documentos/              # Documentação adicional
-├── tasks/                   # Histórico de tarefas
+├── tarefas/                 # Histórico de tarefas
 ├── claude.md                # Configurações do projeto
 ├── README.md                # Este arquivo
 ├── package.json             # Dependências e scripts
