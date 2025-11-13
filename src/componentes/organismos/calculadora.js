@@ -49,7 +49,10 @@ export class Calculadora {
 
         // Taxa de Juros: percentual com 4 decimais
         this.campos.taxaJuros.addEventListener('input', (e) => {
-            const valorFormatado = formatacao.formatarInputEmTempoReal(e.target.value, 'percentual');
+            const valorFormatado = formatacao.formatarInputEmTempoReal(
+                e.target.value,
+                'percentual'
+            );
             e.target.value = valorFormatado;
             this.limparErro(e.target);
         });

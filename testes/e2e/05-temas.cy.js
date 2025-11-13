@@ -31,12 +31,14 @@ describe('Sistema de Temas', () => {
     describe('Modo Escuro', () => {
         it('deve alternar modo escuro', () => {
             // Verificar modo claro inicial (ou aguardar que esteja claro)
-            cy.get('html').should('have.attr', 'data-tema-modo').then((modo) => {
-                // Se estiver em modo escuro, desmarcar primeiro
-                if (modo === 'escuro') {
-                    cy.get('#toggle-modo-escuro').uncheck({ force: true });
-                }
-            });
+            cy.get('html')
+                .should('have.attr', 'data-tema-modo')
+                .then((modo) => {
+                    // Se estiver em modo escuro, desmarcar primeiro
+                    if (modo === 'escuro') {
+                        cy.get('#toggle-modo-escuro').uncheck({ force: true });
+                    }
+                });
             cy.get('html').should('have.attr', 'data-tema-modo', 'claro');
 
             // Ativar modo escuro (checkbox está visualmente oculto, usar check)

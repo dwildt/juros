@@ -50,7 +50,7 @@ describe('Validação', () => {
         test('deve contar casas decimais corretamente', () => {
             expect(validacao.contarCasasDecimais(10)).toBe(0);
             expect(validacao.contarCasasDecimais(10.5)).toBe(1);
-            expect(validacao.contarCasasDecimais(10.50)).toBe(1);
+            expect(validacao.contarCasasDecimais(10.5)).toBe(1);
             expect(validacao.contarCasasDecimais(10.123)).toBe(3);
             expect(validacao.contarCasasDecimais(10.1234)).toBe(4);
             expect(validacao.contarCasasDecimais(0.12345)).toBe(5);

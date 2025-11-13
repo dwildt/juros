@@ -1,5 +1,73 @@
 # Calculadora de Financiamento - Configurações do Projeto
 
+## ⚠️ INSTRUÇÕES OBRIGATÓRIAS PARA CLAUDE CODE
+
+### Protocolo de Validação Automática
+
+**SEMPRE que você (Claude Code) modificar, criar ou editar qualquer arquivo de código (.js, .css, .html), você DEVE executar OBRIGATORIAMENTE os seguintes comandos NA ORDEM indicada:**
+
+1. **Formatar código:**
+   ```bash
+   npm run format
+   ```
+
+2. **Verificar lint:**
+   ```bash
+   npm run lint
+   ```
+
+3. **Executar testes unitários:**
+   ```bash
+   npm test
+   ```
+
+4. **Executar testes E2E (quando aplicável):**
+   ```bash
+   npm run cypress:run
+   ```
+   *Nota: Testes E2E são opcionais para mudanças pequenas, mas obrigatórios para funcionalidades novas ou modificações significativas na interface.*
+
+### Regras Absolutas
+
+- ❌ **NUNCA** complete uma tarefa sem executar TODAS as validações obrigatórias (format, lint, test)
+- ❌ **NUNCA** pule nenhuma etapa do protocolo de validação
+- ❌ **NUNCA** considere uma tarefa concluída se qualquer validação falhar
+- ✅ **SEMPRE** corrija os problemas reportados pelas validações antes de prosseguir
+- ✅ **SEMPRE** informe o usuário sobre o resultado de cada validação executada
+- ✅ **SEMPRE** execute `npm run format` primeiro, antes de lint e testes
+
+### Fluxo de Trabalho Completo
+
+```
+Modificou código → npm run format → npm run lint → npm test → ✅ Tarefa concluída
+                         ↓                ↓             ↓
+                    Se falhar        Se falhar     Se falhar
+                         ↓                ↓             ↓
+                    Corrigir         Corrigir      Corrigir
+```
+
+### Exemplo de Validação
+
+Após modificar `src/componentes/atomos/botao.js`:
+
+```bash
+# 1. Formatar
+npm run format
+# ✅ Código formatado com sucesso
+
+# 2. Lint
+npm run lint
+# ✅ Nenhum erro de lint encontrado
+
+# 3. Testes
+npm test
+# ✅ Todos os testes passaram (15/15)
+
+# Tarefa concluída com sucesso! ✅
+```
+
+---
+
 ## Visão Geral
 Calculadora de financiamento com prestações fixas, inspirada na calculadora do Banco Central do Brasil. Desenvolvida em JavaScript Vanilla para funcionar no GitHub Pages.
 
