@@ -25,6 +25,9 @@ echo ""
 echo "Iniciando tradução das mensagens de commit..."
 echo ""
 
+# Suprimir warning do git filter-branch
+export FILTER_BRANCH_SQUELCH_WARNING=1
+
 # Função para traduzir mensagens de commit
 git filter-branch --msg-filter '
     msg=$(cat)
