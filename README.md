@@ -258,23 +258,34 @@ Adicione ao README para mostrar status:
 
 ## Contribuindo
 
-Contribuições são bem-vindas! Por favor:
+Contribuições são bem-vindas! 
+
+**📖 Leia o [Guia de Contribuição](CONTRIBUTING.md) completo para detalhes sobre:**
+- Padrão de commits em português
+- Estilo de código
+- Processo de Pull Request
+- Como reportar bugs
+- Como sugerir funcionalidades
+
+### Resumo Rápido
 
 1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+2. Crie uma branch para sua feature (`git checkout -b feat/nova-funcionalidade`)
+3. Commit suas mudanças em português (`git commit -m 'feat: adicionar nova funcionalidade'`)
+4. Execute validações: `npm run format && npm run lint && npm test`
+5. Push para a branch (`git push origin feat/nova-funcionalidade`)
+6. Abra um Pull Request
 
 ### Padrões de Código
 
+- **Mensagens de commit em português brasileiro** (veja [CONTRIBUTING.md](CONTRIBUTING.md))
 - Nomes de variáveis e funções em português brasileiro
 - Comentários e documentação em português
 - Seguir convenções do Atomic Design
 - Escrever testes para novas funcionalidades
 - Manter cobertura de testes acima de 80%
-- Executar `npm run lint:fix` antes de commitar
-- Executar `npm run format` para formatar o código
+- Executar `npm run format` antes de commitar
+- Executar `npm run lint` para verificar o código
 - Todos os testes devem passar: `npm test`
 
 ## Referências

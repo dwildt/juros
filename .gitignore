@@ -37,3 +37,7 @@ Thumbs.db
 # Build
 dist/
 build/
+
+# Backup do repositório (usado durante tradução de commits)
+*-backup/
+juros-backup/
