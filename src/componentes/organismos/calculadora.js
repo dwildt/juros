@@ -81,7 +81,7 @@ export class Calculadora {
                 valores[nome] = null;
             } else {
                 const resultado = validacao.validarCampoNumerico(valor);
-                valores[nome] = resultado.valido ? resultado.valor : null;
+                valores[nome] = resultado.valido ? resultado.valor : valor;
             }
         });
 

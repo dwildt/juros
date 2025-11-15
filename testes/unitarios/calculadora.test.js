@@ -67,13 +67,13 @@ describe('Calculadora', () => {
             expect(valores.valorPrestacao).toBeNull();
         });
 
-        test('deve retornar null para valores inválidos', () => {
+        test('deve manter valor original para valores inválidos e null para vazios', () => {
             calculadora.campos.valorFinanciado.value = 'abc';
             calculadora.campos.taxaJuros.value = '';
 
             const valores = calculadora.obterValoresCampos();
 
-            expect(valores.valorFinanciado).toBeNull();
+            expect(valores.valorFinanciado).toBe('abc');
             expect(valores.taxaJuros).toBeNull();
         });
     });

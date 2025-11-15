@@ -5,8 +5,8 @@
   "main": "src/index.html",
   "type": "module",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx http-server -p 3000",
+    "start": "npx serve . --listen 3000",
+    "dev": "npx serve . --listen 3000",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
