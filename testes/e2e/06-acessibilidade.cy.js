@@ -4,7 +4,7 @@
 
 describe('Acessibilidade e Responsividade', () => {
     beforeEach(() => {
-        cy.visit('/src/index.html');
+        cy.visit('/');
     });
 
     describe('Acessibilidade', () => {

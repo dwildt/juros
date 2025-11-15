@@ -4,7 +4,7 @@
 
 describe('Funcionalidades do Formulário', () => {
     beforeEach(() => {
-        cy.visit('/src/index.html');
+        cy.visit('/');
     });
 
     describe('Botão Limpar', () => {

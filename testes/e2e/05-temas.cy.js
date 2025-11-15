@@ -6,7 +6,7 @@ describe('Sistema de Temas', () => {
     beforeEach(() => {
         // Limpar localStorage antes de cada teste
         cy.clearLocalStorage();
-        cy.visit('/src/index.html');
+        cy.visit('/');
     });
 
     describe('Troca de Cores', () => {

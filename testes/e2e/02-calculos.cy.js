@@ -4,7 +4,7 @@
 
 describe('Cálculos Financeiros', () => {
     beforeEach(() => {
-        cy.visit('/src/index.html');
+        cy.visit('/');
     });
 
     describe('Cálculo de Prestação', () => {

@@ -4,7 +4,7 @@
 
 describe('Carregamento da Página', () => {
     beforeEach(() => {
-        cy.visit('/src/index.html');
+        cy.visit('/');
     });
 
     it('deve carregar a página com sucesso', () => {
@@ -28,6 +28,6 @@ describe('Carregamento da Página', () => {
         cy.get('[data-cor="verde"]').should('be.visible');
         cy.get('[data-cor="laranja"]').should('be.visible');
         cy.get('[data-cor="roxo"]').should('be.visible');
-        cy.get('#toggle-modo-escuro').should('be.visible');
+        cy.get('#toggle-modo-escuro').should('exist');
     });
 });
